@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx0cg2vohkqu2"]
+
+[ext_resource type="Texture2D" uid="uid://d383555gu5r2b" path="res://icon.svg" id="1_60rwh"]
+
+[node name="PoopGame" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_60rwh")
