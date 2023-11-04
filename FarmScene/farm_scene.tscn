@@ -23,7 +23,6 @@ mouse_filter = 1
 [node name="FoodItem" parent="Farm" instance=ExtResource("3_rqvr6")]
 
 [node name="FarmBgTileMap" parent="Farm" instance=ExtResource("1_asobj")]
-scale = Vector2(1, 1)
 
 [node name="Animal" parent="Farm" instance=ExtResource("1_2lqmr")]
 position = Vector2(116, 74)
