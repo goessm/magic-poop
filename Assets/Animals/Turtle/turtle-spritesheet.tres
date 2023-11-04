@@ -1,7 +1,8 @@
-[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://vt2dmmmhwi5b"]
+[gd_resource type="SpriteFrames" load_steps=16 format=3 uid="uid://vt2dmmmhwi5b"]
 
 [ext_resource type="Texture2D" uid="uid://crafqlx5kw78t" path="res://Assets/Animals/Turtle/turtle-bite.png" id="1_n3cyy"]
 [ext_resource type="Texture2D" uid="uid://db4r45ydf8h6" path="res://Assets/Animals/Turtle/turtle-run.png" id="2_j4gtg"]
+[ext_resource type="Texture2D" uid="uid://ciiv5dxaisqll" path="res://Assets/Animals/Turtle/turtle-poop.png" id="2_njlb2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t2qkd"]
 atlas = ExtResource("1_n3cyy")
@@ -10,6 +11,30 @@ region = Rect2(0, 0, 96, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_vsk34"]
 atlas = ExtResource("1_n3cyy")
 region = Rect2(96, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_beikp"]
+atlas = ExtResource("1_n3cyy")
+region = Rect2(0, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2a0t"]
+atlas = ExtResource("2_njlb2")
+region = Rect2(0, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7lxx"]
+atlas = ExtResource("2_njlb2")
+region = Rect2(96, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nm2l"]
+atlas = ExtResource("2_njlb2")
+region = Rect2(192, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wliwe"]
+atlas = ExtResource("2_njlb2")
+region = Rect2(0, 64, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tffi"]
+atlas = ExtResource("2_njlb2")
+region = Rect2(96, 64, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bi7p1"]
 atlas = ExtResource("2_j4gtg")
@@ -36,8 +61,36 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vsk34")
 }],
-"loop": true,
+"loop": false,
 "name": &"bite",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_beikp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2a0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7lxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nm2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wliwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tffi")
+}],
+"loop": true,
+"name": &"poop",
 "speed": 5.0
 }, {
 "frames": [{

@@ -74,7 +74,7 @@ region_rect = Rect2(32, 32, 32, 32)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -15)
 sprite_frames = ExtResource("4_0gw8k")
-animation = &"bite"
+autoplay = "idle"
 
 [node name="FeedArea" parent="." instance=ExtResource("4_8f7w5")]
 position = Vector2(12, 3)

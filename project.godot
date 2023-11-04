@@ -21,6 +21,7 @@ EventBus="*res://Global/EventBus.gd"
 Groups="*res://Global/Groups.gd"
 Inventory="*res://Inventory/inventory.gd"
 Enums="*res://Global/Enums.gd"
+SceneList="*res://Global/SceneList.gd"
 
 [display]
 
