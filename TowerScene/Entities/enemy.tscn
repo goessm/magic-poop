@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3g5qsobrhd03"]
+[gd_scene load_steps=9 format=3 uid="uid://b3g5qsobrhd03"]
 
 [ext_resource type="Script" path="res://TowerScene/Entities/enemy.gd" id="1_3ijvh"]
 [ext_resource type="Script" path="res://TowerScene/Entities/health.gd" id="2_voaf2"]
@@ -9,15 +9,24 @@ radius = 45.0
 
 [sub_resource type="Curve2D" id="Curve2D_c3lhe"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 202, 94, -86.8121, -5.94603, 86.8121, 5.94603, 392, 102, -58.2711, -13.0813, 58.2711, 13.0813, 549, 121, -35.6762, -51.1359, 35.6762, 51.1359, 663, 193, 11.8921, -39.2438, -11.8921, 39.2438, 669, 347, 23.7841, -29.7302, -23.7841, 29.7302, 626, 425, 57.0819, -1.18921, -57.0819, 1.18921, 475, 463, 0, 0, 0, 0, 317, 455)
+"points": PackedVector2Array(0, 0, 0, 0, 202, 94, -5.23345, -63.157, 5.23345, 63.157, 392, 102, -2.11956, -44.8652, 2.11956, 44.8652, 255, 183, -0.713921, -51.1359, 0.713921, 51.1359, 445, 233, 1.29747, -43.4817, -1.29747, 43.4817, 336, 335, -0.583549, -51.9789, 0.583549, 51.9789, 626, 425, 57.0819, -1.18921, -57.0819, 1.18921, 475, 463, 0, 0, 0, 0, 317, 455)
 }
 point_count = 8
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("health", "path_follow", "sprite") groups=["Enemies"]]
+[sub_resource type="Theme" id="Theme_qrm36"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ho7tm"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w4bgk"]
+bg_color = Color(0, 1, 0, 1)
+
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("health", "path_follow", "sprite", "health_bar") groups=["Enemies"]]
 script = ExtResource("1_3ijvh")
 health = NodePath("Health")
 path_follow = NodePath("Path2D/PathFollow2D")
 sprite = NodePath("Sprite2D")
+health_bar = NodePath("ProgressBar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xydy7")
@@ -37,3 +46,14 @@ curve = SubResource("Curve2D_c3lhe")
 position = Vector2(202, 94)
 rotation = 0.0420804
 loop = false
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -35.0
+offset_top = -62.0
+offset_right = 35.0
+offset_bottom = -52.0
+theme = SubResource("Theme_qrm36")
+theme_override_styles/background = SubResource("StyleBoxFlat_ho7tm")
+theme_override_styles/fill = SubResource("StyleBoxFlat_w4bgk")
+value = 100.0
+show_percentage = false

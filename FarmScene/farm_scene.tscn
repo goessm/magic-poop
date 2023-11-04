@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b0xmlhjr1ckxn" path="res://FarmScene/Animals/Cow/cow.tscn" id="1_2lqmr"]
 [ext_resource type="PackedScene" uid="uid://dy000kbix0vk1" path="res://FarmScene/Tilemaps/FarmBgTileMap.tscn" id="1_asobj"]
-[ext_resource type="PackedScene" uid="uid://qfygb7po01f4" path="res://FarmScene/Food/FoodItem.tscn" id="3_rqvr6"]
+[ext_resource type="PackedScene" path="res://FarmScene/Food/FoodItem.tscn" id="3_rqvr6"]
 
 [node name="FarmScene" type="Node"]
 

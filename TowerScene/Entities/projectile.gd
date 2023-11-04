@@ -5,7 +5,7 @@ extends Area2D
 @export var speed: float
 @export var collision_shape: CollisionShape2D
 var lived_seconds: float = 0.0
-var damage = 50
+var damage = 30
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

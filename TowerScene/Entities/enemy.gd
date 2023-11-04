@@ -6,6 +6,7 @@ signal died(obj)
 @export var health: Health
 @export var path_follow: PathFollow2D
 @export var sprite: Sprite2D
+@export var health_bar: ProgressBar
 
 var _dead = false
 
@@ -19,16 +20,19 @@ func _ready():
 func _process(delta):
 	#position.x += 0.9
 	path_follow.progress += 64.0 * delta
+	var last_pos = position
 	position = path_follow.position
-	rotation = path_follow.rotation
+	sprite.flip_h = position.x >= last_pos.x
+	#rotation = path_follow.rotation
 	pass
 
 func hit(projectile: Projectile, damage: int):
 	health.takeDamage(damage)
 
-func _on_health_changed(obj, health):
-	print("_on_health_changed ", obj, health)
-	if health <= 0:
+func _on_health_changed(obj, val):
+	print("_on_health_changed ", obj, val, ", ", health.max_health)
+	health_bar.set_value_no_signal(100 * val / health.max_health)
+	if val <= 0:
 		_dead = true
 		emit_signal("died", self)
 		queue_free()
