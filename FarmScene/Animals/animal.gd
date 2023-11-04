@@ -1,5 +1,5 @@
 class_name Animal
-extends Node2D
+extends CharacterBody2D
 
 # Animal is nice guy u feed and it poops
 
@@ -27,7 +27,9 @@ func poop_animation_finished():
 	_spawn_poop()
 
 func move(direction: Vector2):
-	position += direction
+	velocity = direction
+	move_and_slide()
+	#position += direction
 	animated_sprite.flip_h = direction.x < 0
 	
 

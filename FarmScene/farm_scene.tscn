@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2lwdlovqpyli"]
+[gd_scene load_steps=5 format=3 uid="uid://d2lwdlovqpyli"]
 
 [ext_resource type="PackedScene" uid="uid://bu650ckv4ujxs" path="res://FarmScene/Animals/animal.tscn" id="1_2lqmr"]
 [ext_resource type="PackedScene" uid="uid://dy000kbix0vk1" path="res://FarmScene/Tilemaps/FarmBgTileMap.tscn" id="1_asobj"]
 [ext_resource type="PackedScene" uid="uid://qfygb7po01f4" path="res://FarmScene/Food/FoodItem.tscn" id="3_rqvr6"]
+[ext_resource type="PackedScene" uid="uid://b3vt4xordthl2" path="res://FarmScene/Level/InvisibleWall/invisible_wall.tscn" id="4_rtxuc"]
 
 [node name="FarmScene" type="Node"]
 
@@ -29,3 +30,32 @@ position = Vector2(116, 74)
 
 [node name="Animal2" parent="Farm" instance=ExtResource("1_2lqmr")]
 position = Vector2(208, 89)
+
+[node name="Animal3" parent="Farm" instance=ExtResource("1_2lqmr")]
+position = Vector2(44, 93)
+
+[node name="Animal4" parent="Farm" instance=ExtResource("1_2lqmr")]
+position = Vector2(161, 122)
+
+[node name="Animal5" parent="Farm" instance=ExtResource("1_2lqmr")]
+position = Vector2(83, 135)
+
+[node name="Colliders" type="Node2D" parent="Farm"]
+
+[node name="InvisibleWall" parent="Farm/Colliders" instance=ExtResource("4_rtxuc")]
+position = Vector2(122, 47)
+scale = Vector2(2.44, 1)
+
+[node name="InvisibleWall2" parent="Farm/Colliders" instance=ExtResource("4_rtxuc")]
+position = Vector2(-39, 152)
+rotation = 1.5708
+scale = Vector2(1.68, 1)
+
+[node name="InvisibleWall3" parent="Farm/Colliders" instance=ExtResource("4_rtxuc")]
+position = Vector2(122, 266)
+scale = Vector2(2.44, 1)
+
+[node name="InvisibleWall4" parent="Farm/Colliders" instance=ExtResource("4_rtxuc")]
+position = Vector2(281, 155)
+rotation = 1.5708
+scale = Vector2(1.68, 1)

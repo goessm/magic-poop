@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bu650ckv4ujxs"]
+[gd_scene load_steps=11 format=3 uid="uid://bu650ckv4ujxs"]
 
 [ext_resource type="Script" path="res://FarmScene/Animals/animal.gd" id="1_v1j0c"]
 [ext_resource type="PackedScene" uid="uid://doedpmr6k2y5e" path="res://FarmScene/Poop/Poop.tscn" id="2_70mkq"]
@@ -57,7 +57,11 @@ _data = {
 "poop": SubResource("Animation_7xwsc")
 }
 
-[node name="Animal" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m4sut"]
+radius = 14.0
+height = 34.0
+
+[node name="Animal" type="CharacterBody2D"]
 script = ExtResource("1_v1j0c")
 poopScene = ExtResource("2_70mkq")
 
@@ -84,3 +88,8 @@ libraries = {
 
 [node name="PoopTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_m4sut")

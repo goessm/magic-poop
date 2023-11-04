@@ -3,7 +3,7 @@ extends Node
 const start_moving_chance := 0.3
 const stop_moving_chance := 0.6
 
-@export var speed := 20.0
+@export var speed := 2000.0
 
 @onready var parent: Animal = $".."
 
