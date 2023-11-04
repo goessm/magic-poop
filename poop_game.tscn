@@ -1,8 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://bx0cg2vohkqu2"]
 
-[ext_resource type="Texture2D" uid="uid://d383555gu5r2b" path="res://icon.svg" id="1_60rwh"]
+[ext_resource type="PackedScene" uid="uid://d2lwdlovqpyli" path="res://FarmScene/farm_scene.tscn" id="1_gfbur"]
 
-[node name="PoopGame" type="Node2D"]
+[node name="PoopGame" type="Node"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_60rwh")
+[node name="FarmScene" parent="." instance=ExtResource("1_gfbur")]
