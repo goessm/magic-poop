@@ -1,9 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0xmlhjr1ckxn"]
+[gd_scene load_steps=5 format=3 uid="uid://b0xmlhjr1ckxn"]
 
-[ext_resource type="Texture2D" uid="uid://d1cngc6a5tkye" path="res://Assets/Placeholders/Kenney/Farm/Tiles/tile_0107.png" id="1_763ld"]
+[ext_resource type="Script" path="res://FarmScene/Animals/Cow/cow.gd" id="1_2x5l6"]
+[ext_resource type="Texture2D" uid="uid://cmy5lwalx6dj5" path="res://Assets/Placeholders/Kenney/AnimalPack/PNG/Round/cow.png" id="1_38hto"]
+[ext_resource type="PackedScene" uid="uid://coocu7sf55534" path="res://FarmScene/Animals/FeedArea/feed_area.tscn" id="2_2jqdx"]
+[ext_resource type="PackedScene" uid="uid://cjj45lg0efbq8" path="res://FarmScene/Animals/Movement/WanderBehaviour/wander_behaviour.tscn" id="3_et3fr"]
 
 [node name="Cow" type="Node2D"]
+script = ExtResource("1_2x5l6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(5, 5)
-texture = ExtResource("1_763ld")
+texture = ExtResource("1_38hto")
+
+[node name="FeedArea" parent="." instance=ExtResource("2_2jqdx")]
+position = Vector2(0, 50)
+
+[node name="WanderBehaviour" parent="." instance=ExtResource("3_et3fr")]

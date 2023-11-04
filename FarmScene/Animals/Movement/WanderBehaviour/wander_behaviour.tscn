@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjj45lg0efbq8"]
+
+[ext_resource type="Script" path="res://FarmScene/Animals/Movement/WanderBehaviour/wander_behaviour.gd" id="1_gg4uc"]
+
+[node name="WanderBehaviour" type="Node"]
+script = ExtResource("1_gg4uc")
+
+[node name="DecisionTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="DecisionTimer" to="." method="_on_decision_timer_timeout"]
