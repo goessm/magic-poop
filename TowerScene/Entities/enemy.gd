@@ -7,6 +7,7 @@ signal died(obj)
 @export var path_follow: PathFollow2D
 @export var sprite: Sprite2D
 @export var health_bar: ProgressBar
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var _dead = false
 
@@ -15,6 +16,7 @@ func _ready():
 	health.init(100)
 	health.health_changed.connect(_on_health_changed)
 	position = path_follow.position
+	animated_sprite_2d.play("run")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -22,7 +24,7 @@ func _process(delta):
 	path_follow.progress += 64.0 * delta
 	var last_pos = position
 	position = path_follow.position
-	sprite.flip_h = position.x >= last_pos.x
+	animated_sprite_2d.flip_h = position.x < last_pos.x
 	#rotation = path_follow.rotation
 	pass
 

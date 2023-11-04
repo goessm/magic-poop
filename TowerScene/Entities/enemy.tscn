@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3g5qsobrhd03"]
+[gd_scene load_steps=10 format=3 uid="uid://b3g5qsobrhd03"]
 
 [ext_resource type="Script" path="res://TowerScene/Entities/enemy.gd" id="1_3ijvh"]
 [ext_resource type="Script" path="res://TowerScene/Entities/health.gd" id="2_voaf2"]
 [ext_resource type="Texture2D" uid="uid://cui2ehkly2nsi" path="res://Assets/Placeholders/Kenney/Farm/Preview.png" id="3_tw6h1"]
+[ext_resource type="SpriteFrames" uid="uid://cucs3j4e3gunc" path="res://Assets/Enemies/Enemy1/enemy1-spritesheet.tres" id="4_ybr1x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xydy7"]
 radius = 45.0
@@ -36,6 +37,7 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 script = ExtResource("2_voaf2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.0985172, 0.166978)
 texture = ExtResource("3_tw6h1")
 
@@ -57,3 +59,8 @@ theme_override_styles/background = SubResource("StyleBoxFlat_ho7tm")
 theme_override_styles/fill = SubResource("StyleBoxFlat_w4bgk")
 value = 100.0
 show_percentage = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -21)
+sprite_frames = ExtResource("4_ybr1x")
+animation = &"bite"
