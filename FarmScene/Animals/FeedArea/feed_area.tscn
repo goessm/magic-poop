@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://coocu7sf55534"]
 
-[ext_resource type="Script" path="res://FarmScene/Animals/Cow/FeedArea.gd" id="1_vdp3t"]
+[ext_resource type="Script" path="res://FarmScene/Animals/FeedArea/FeedArea.gd" id="1_1i764"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_48y0k"]
-radius = 55.0
+radius = 6.0
 
 [node name="FeedArea" type="Area2D"]
-script = ExtResource("1_vdp3t")
+script = ExtResource("1_1i764")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_48y0k")

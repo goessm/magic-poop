@@ -1,5 +1,8 @@
 extends Area2D
 
+@onready var animal: Animal = $".."
+
+
 func _on_area_entered(area: Area2D):
 	if area.is_in_group(Groups.Food):
 		var food = area.get_parent()
@@ -8,4 +11,5 @@ func _on_area_entered(area: Area2D):
 
 func eat_food(food: FoodItem):
 	print("I ate a " + str(food.type))
+	animal.digest_food(food)
 	food.get_eaten()

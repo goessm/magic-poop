@@ -3,9 +3,9 @@ extends Node
 const start_moving_chance := 0.3
 const stop_moving_chance := 0.6
 
-@export var speed := 50.0
+@export var speed := 2000.0
 
-@onready var parent: Cow = $".."
+@onready var parent: Animal = $".."
 
 var goalDirection: Vector2 # the direction I want to wander in
 

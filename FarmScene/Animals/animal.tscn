@@ -1,0 +1,95 @@
+[gd_scene load_steps=11 format=3 uid="uid://bu650ckv4ujxs"]
+
+[ext_resource type="Script" path="res://FarmScene/Animals/animal.gd" id="1_v1j0c"]
+[ext_resource type="PackedScene" uid="uid://doedpmr6k2y5e" path="res://FarmScene/Poop/Poop.tscn" id="2_70mkq"]
+[ext_resource type="Texture2D" uid="uid://bc8vdh8h8t8p6" path="res://Assets/Animals/Sheep/sheep-run.png" id="3_iaa33"]
+[ext_resource type="SpriteFrames" uid="uid://vfhmbqjdp330" path="res://Assets/Animals/Sheep/sheep-spritesheet.tres" id="4_0gw8k"]
+[ext_resource type="PackedScene" uid="uid://coocu7sf55534" path="res://FarmScene/Animals/FeedArea/feed_area.tscn" id="4_8f7w5"]
+[ext_resource type="PackedScene" uid="uid://cjj45lg0efbq8" path="res://FarmScene/Animals/Movement/WanderBehaviour/wander_behaviour.tscn" id="5_74qvs"]
+
+[sub_resource type="Animation" id="Animation_48uh0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7xwsc"]
+resource_name = "poop"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.2), Vector2(1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"poop_animation_finished"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tv8s3"]
+_data = {
+"RESET": SubResource("Animation_48uh0"),
+"poop": SubResource("Animation_7xwsc")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m4sut"]
+radius = 14.0
+height = 34.0
+
+[node name="Animal" type="CharacterBody2D"]
+script = ExtResource("1_v1j0c")
+poopScene = ExtResource("2_70mkq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_iaa33")
+region_enabled = true
+region_rect = Rect2(32, 32, 32, 32)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -15)
+sprite_frames = ExtResource("4_0gw8k")
+animation = &"bite"
+
+[node name="FeedArea" parent="." instance=ExtResource("4_8f7w5")]
+position = Vector2(12, 3)
+
+[node name="WanderBehaviour" parent="." instance=ExtResource("5_74qvs")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tv8s3")
+}
+
+[node name="PoopTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_m4sut")
