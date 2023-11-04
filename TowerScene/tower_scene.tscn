@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cavc5ytw12qp2"]
+
+[ext_resource type="PackedScene" uid="uid://bwa36ys7tpcnx" path="res://TowerScene/spawner.tscn" id="1_r528u"]
+
+[node name="TowerScene" type="Node"]
+
+[node name="Spawner" parent="." instance=ExtResource("1_r528u")]

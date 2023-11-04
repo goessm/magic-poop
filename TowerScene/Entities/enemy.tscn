@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3g5qsobrhd03"]
+
+[ext_resource type="Script" path="res://TowerScene/Entities/enemy.gd" id="1_3ijvh"]
+[ext_resource type="Script" path="res://TowerScene/Entities/health.gd" id="2_voaf2"]
+[ext_resource type="Texture2D" uid="uid://cui2ehkly2nsi" path="res://Assets/Placeholders/Kenney/Farm/Preview.png" id="3_tw6h1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7glo7"]
+
+[sub_resource type="Curve2D" id="Curve2D_c3lhe"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 202, 94, -86.8121, -5.94603, 86.8121, 5.94603, 392, 102, -58.2711, -13.0813, 58.2711, 13.0813, 549, 121, -35.6762, -51.1359, 35.6762, 51.1359, 663, 193, 11.8921, -39.2438, -11.8921, 39.2438, 669, 347, 23.7841, -29.7302, -23.7841, 29.7302, 626, 425, 57.0819, -1.18921, -57.0819, 1.18921, 475, 463, 0, 0, 0, 0, 317, 455)
+}
+point_count = 8
+
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("health", "path_follow")]
+script = ExtResource("1_3ijvh")
+health = NodePath("Health")
+path_follow = NodePath("Path2D/PathFollow2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7glo7")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_voaf2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0985172, 0.166978)
+texture = ExtResource("3_tw6h1")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_c3lhe")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(202, 94)
+rotation = 0.0420804
+loop = false

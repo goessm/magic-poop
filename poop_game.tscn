@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bx0cg2vohkqu2"]
+[gd_scene load_steps=3 format=3 uid="uid://bx0cg2vohkqu2"]
 
 [ext_resource type="PackedScene" uid="uid://d2lwdlovqpyli" path="res://FarmScene/farm_scene.tscn" id="1_gfbur"]
+[ext_resource type="PackedScene" uid="uid://cavc5ytw12qp2" path="res://TowerScene/tower_scene.tscn" id="2_6dmkx"]
 
 [node name="PoopGame" type="Node"]
 
 [node name="FarmScene" parent="." instance=ExtResource("1_gfbur")]
+
+[node name="TowerScene" parent="." instance=ExtResource("2_6dmkx")]

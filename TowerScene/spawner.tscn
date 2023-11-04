@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwa36ys7tpcnx"]
+
+[ext_resource type="Script" path="res://TowerScene/spawner.gd" id="1_mfvgi"]
+
+[node name="Spawner" type="Node" node_paths=PackedStringArray("timer", "spawn_points")]
+script = ExtResource("1_mfvgi")
+timer = NodePath("Timer")
+spawn_points = NodePath("SpawnPoints")
+
+[node name="SpawnPoints" type="Node" parent="."]
+
+[node name="SpawnPoint1" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(592, 339)
+
+[node name="Timer" type="Timer" parent="."]
