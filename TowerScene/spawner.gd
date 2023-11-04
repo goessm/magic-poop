@@ -41,4 +41,5 @@ func spawn_enemy():
 
 func _on_timeout():
 	spawn_enemy()
+	timer.start(10.0)
 	pass

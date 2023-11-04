@@ -7,6 +7,7 @@ signal health_changed(obj, health)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	init(100)
 	pass
 
 func init(_max_health: int):

@@ -4,7 +4,8 @@
 [ext_resource type="Script" path="res://TowerScene/Entities/health.gd" id="2_voaf2"]
 [ext_resource type="Texture2D" uid="uid://cui2ehkly2nsi" path="res://Assets/Placeholders/Kenney/Farm/Preview.png" id="3_tw6h1"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7glo7"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_xydy7"]
+radius = 45.0
 
 [sub_resource type="Curve2D" id="Curve2D_c3lhe"]
 _data = {
@@ -12,13 +13,15 @@ _data = {
 }
 point_count = 8
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("health", "path_follow")]
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("health", "path_follow", "sprite") groups=["Enemies"]]
 script = ExtResource("1_3ijvh")
 health = NodePath("Health")
 path_follow = NodePath("Path2D/PathFollow2D")
+sprite = NodePath("Sprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_7glo7")
+shape = SubResource("CircleShape2D_xydy7")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_voaf2")

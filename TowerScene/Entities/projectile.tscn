@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://veynhu1x2lmf"]
+
+[ext_resource type="Script" path="res://TowerScene/Entities/projectile.gd" id="1_vdnjm"]
+[ext_resource type="Texture2D" uid="uid://euqouihg7y1e" path="res://Assets/Placeholders/DontUseInFinalProductStolenAssets/poop1.png" id="2_2hugr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jlfxh"]
+
+[node name="Projectile" type="Area2D" node_paths=PackedStringArray("collision_shape")]
+script = ExtResource("1_vdnjm")
+collision_shape = NodePath("CollisionShape2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.024265, 0.0207493)
+texture = ExtResource("2_2hugr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.19969, 1.19969)
+shape = SubResource("CircleShape2D_jlfxh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
