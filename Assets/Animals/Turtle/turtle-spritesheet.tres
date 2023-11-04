@@ -1,0 +1,59 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://vt2dmmmhwi5b"]
+
+[ext_resource type="Texture2D" uid="uid://crafqlx5kw78t" path="res://Assets/Animals/Turtle/turtle-bite.png" id="1_n3cyy"]
+[ext_resource type="Texture2D" uid="uid://db4r45ydf8h6" path="res://Assets/Animals/Turtle/turtle-run.png" id="2_j4gtg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2qkd"]
+atlas = ExtResource("1_n3cyy")
+region = Rect2(0, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsk34"]
+atlas = ExtResource("1_n3cyy")
+region = Rect2(96, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bi7p1"]
+atlas = ExtResource("2_j4gtg")
+region = Rect2(0, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13xdp"]
+atlas = ExtResource("2_j4gtg")
+region = Rect2(96, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d75u6"]
+atlas = ExtResource("2_j4gtg")
+region = Rect2(0, 64, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4eq54"]
+atlas = ExtResource("2_j4gtg")
+region = Rect2(96, 64, 96, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2qkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsk34")
+}],
+"loop": true,
+"name": &"bite",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi7p1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13xdp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d75u6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4eq54")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
