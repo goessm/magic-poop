@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://FarmScene/Animals/FeedArea/FeedArea.gd" id="1_1i764"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_48y0k"]
-radius = 27.0185
+radius = 6.0
 
 [node name="FeedArea" type="Area2D"]
 script = ExtResource("1_1i764")

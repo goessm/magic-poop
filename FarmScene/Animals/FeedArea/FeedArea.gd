@@ -11,4 +11,5 @@ func _on_area_entered(area: Area2D):
 
 func eat_food(food: FoodItem):
 	print("I ate a " + str(food.type))
+	animal.digest_food(food)
 	food.get_eaten()

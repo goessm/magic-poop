@@ -2,6 +2,7 @@ class_name FoodItem
 extends Node
 
 @export var type: FoodType
+@export var digest_time: float = 1.0
 
 @onready var collision_area = $CollisionArea
 @onready var animation_player = $AnimationPlayer

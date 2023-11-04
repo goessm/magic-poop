@@ -16,12 +16,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="Farm" type="Node2D" parent="."]
 
-[node name="FarmBgTileMap" parent="Farm" instance=ExtResource("1_asobj")]
+[node name="FoodItem" parent="Farm" instance=ExtResource("3_rqvr6")]
 
-[node name="apple" parent="Farm" instance=ExtResource("3_rqvr6")]
+[node name="FarmBgTileMap" parent="Farm" instance=ExtResource("1_asobj")]
+scale = Vector2(1, 1)
 
 [node name="Animal" parent="Farm" instance=ExtResource("1_2lqmr")]
-position = Vector2(551, 294)
+position = Vector2(116, 74)

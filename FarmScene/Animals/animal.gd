@@ -14,10 +14,15 @@ func _ready():
 var allow_to_be_moved := true
 
 func digest_food(food: FoodItem):
-	pass
+	print("digesting")
+	poop_timer.start(food.digest_time)
 
 func poop():
+	print("pooping")
 	animation_player.play("poop")
+
+func poop_animation_finished():
+	_spawn_poop()
 
 func move(direction: Vector2):
 	position += direction
