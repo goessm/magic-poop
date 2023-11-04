@@ -7,5 +7,5 @@
 
 [node name="Spawner" parent="." instance=ExtResource("1_r528u")]
 
-[node name="Tower" parent="." instance=ExtResource("2_wl7tk")]
+[node name="Tower" parent="." groups=["Animals"] instance=ExtResource("2_wl7tk")]
 position = Vector2(376, 483)

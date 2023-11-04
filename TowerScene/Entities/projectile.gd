@@ -5,7 +5,7 @@ extends Area2D
 @export var speed: float
 @export var collision_shape: CollisionShape2D
 var lived_seconds: float = 0.0
-var damage = 30
+var damage = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,6 +26,7 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	body.hit(self, damage)
-	queue_free()
-	pass # Replace with function body.
+	if body is Enemy:
+		body.hit(self, damage)
+		queue_free()
+		pass # Replace with function body.

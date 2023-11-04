@@ -6,7 +6,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cucs3j4e3gunc" path="res://Assets/Enemies/Enemy1/enemy1-spritesheet.tres" id="4_ybr1x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xydy7"]
-radius = 45.0
+radius = 22.0
 
 [sub_resource type="Curve2D" id="Curve2D_c3lhe"]
 _data = {
@@ -50,10 +50,10 @@ rotation = 0.0420804
 loop = false
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = -35.0
-offset_top = -62.0
-offset_right = 35.0
-offset_bottom = -52.0
+offset_left = -30.0
+offset_top = -34.0
+offset_right = 30.0
+offset_bottom = -26.0
 theme = SubResource("Theme_qrm36")
 theme_override_styles/background = SubResource("StyleBoxFlat_ho7tm")
 theme_override_styles/fill = SubResource("StyleBoxFlat_w4bgk")
@@ -64,3 +64,5 @@ show_percentage = false
 position = Vector2(0, -21)
 sprite_frames = ExtResource("4_ybr1x")
 animation = &"bite"
+
+[node name="AttackTimer" type="Timer" parent="."]
