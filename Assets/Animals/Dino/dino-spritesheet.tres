@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=20 format=3 uid="uid://dg0u56mr7lq51"]
+[gd_resource type="SpriteFrames" load_steps=21 format=3 uid="uid://dg0u56mr7lq51"]
 
 [ext_resource type="Texture2D" uid="uid://stmycusgftsw" path="res://Assets/Animals/Dino/dino-bite.png" id="1_5ctn7"]
 [ext_resource type="Texture2D" uid="uid://cdij5tdpor3t1" path="res://Assets/Animals/Dino/dino-run.png" id="2_msft3"]
@@ -23,6 +23,10 @@ region = Rect2(0, 64, 96, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3u1rf"]
 atlas = ExtResource("1_5ctn7")
 region = Rect2(96, 64, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8u8v"]
+atlas = ExtResource("1_5ctn7")
+region = Rect2(0, 0, 96, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6bg0p"]
 atlas = ExtResource("1_5ctn7")
@@ -85,6 +89,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3u1rf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8u8v")
 }],
 "loop": false,
 "name": &"bite",
