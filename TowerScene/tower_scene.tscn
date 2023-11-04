@@ -8,4 +8,7 @@
 [node name="Spawner" parent="." instance=ExtResource("1_r528u")]
 
 [node name="Tower" parent="." groups=["Animals"] instance=ExtResource("2_wl7tk")]
-position = Vector2(376, 483)
+position = Vector2(58, 148)
+
+[node name="Tower2" parent="." groups=["Animals"] instance=ExtResource("2_wl7tk")]
+position = Vector2(329, 145)

@@ -10,6 +10,6 @@ spawn_points = NodePath("SpawnPoints")
 [node name="SpawnPoints" type="Node" parent="."]
 
 [node name="SpawnPoint1" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(592, 339)
+position = Vector2(366, 11)
 
 [node name="Timer" type="Timer" parent="."]

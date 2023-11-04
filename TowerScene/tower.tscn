@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfypeqhqq8ua3"]
+[gd_scene load_steps=8 format=3 uid="uid://dfypeqhqq8ua3"]
 
 [ext_resource type="Script" path="res://TowerScene/tower.gd" id="1_4ehha"]
 [ext_resource type="Texture2D" uid="uid://dl4dqxpfj7myv" path="res://Assets/Placeholders/DontUseInFinalProductStolenAssets/tower.png" id="2_ded5c"]
@@ -7,8 +7,17 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sl4tf"]
 size = Vector2(64, 110)
 
-[node name="Tower" type="StaticBody2D"]
+[sub_resource type="Theme" id="Theme_j5b2k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gma78"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vd3li"]
+bg_color = Color(0, 1, 0, 1)
+
+[node name="Tower" type="StaticBody2D" node_paths=PackedStringArray("health_bar")]
 script = ExtResource("1_4ehha")
+health_bar = NodePath("ProgressBar")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.0684229, 0.0729636)
@@ -19,3 +28,14 @@ shape = SubResource("RectangleShape2D_sl4tf")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("3_5baes")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -30.0
+offset_top = -34.0
+offset_right = 30.0
+offset_bottom = -26.0
+theme = SubResource("Theme_j5b2k")
+theme_override_styles/background = SubResource("StyleBoxFlat_gma78")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vd3li")
+value = 100.0
+show_percentage = false

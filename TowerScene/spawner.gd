@@ -5,6 +5,12 @@ extends Node
 @export var timer: Timer
 @export var spawn_points: Node
 @export var enemy_types: Array[PackedScene]
+@export var spawn_every_seconds: float = 10.0
+@export var spawn_first_after_seconds: float = 2.5
+
+
+var _paused: bool = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,18 +18,31 @@ func _ready():
 	enemy_types.push_back(enemy_scene)
 	timer.timeout.connect(_on_timeout)
 	timer.one_shot = true
-	timer.start(2.5)
+	timer.start(spawn_first_after_seconds)
+
 
 func init(_enemy_types: Array):
 	enemy_types = _enemy_types
 	pass
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
+
 func start_timer(time_sec: float):
 	timer.start(time_sec)
+
+
+func pause():
+	_paused = true
+
+
+func unpause():
+	_paused = false
+	timer.start(spawn_first_after_seconds)
+
 
 func spawn_enemy():
 	if enemy_types.is_empty():
@@ -39,7 +58,10 @@ func spawn_enemy():
 	ins.position = spawn_point.position
 	add_child(ins)
 
+
 func _on_timeout():
+	if _paused:
+		return
 	spawn_enemy()
-	timer.start(10.0)
+	timer.start(spawn_every_seconds)
 	pass
