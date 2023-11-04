@@ -1,0 +1,80 @@
+[gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://dg0u56mr7lq51"]
+
+[ext_resource type="Texture2D" uid="uid://stmycusgftsw" path="res://Assets/Animals/Dino/dino-bite.png" id="1_5ctn7"]
+[ext_resource type="Texture2D" uid="uid://cdij5tdpor3t1" path="res://Assets/Animals/Dino/dino-run.png" id="2_msft3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yv047"]
+atlas = ExtResource("1_5ctn7")
+region = Rect2(0, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pga1k"]
+atlas = ExtResource("1_5ctn7")
+region = Rect2(96, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umwtx"]
+atlas = ExtResource("1_5ctn7")
+region = Rect2(192, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ude1"]
+atlas = ExtResource("1_5ctn7")
+region = Rect2(0, 64, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3u1rf"]
+atlas = ExtResource("1_5ctn7")
+region = Rect2(96, 64, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umg3x"]
+atlas = ExtResource("2_msft3")
+region = Rect2(0, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etu43"]
+atlas = ExtResource("2_msft3")
+region = Rect2(96, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxn0p"]
+atlas = ExtResource("2_msft3")
+region = Rect2(0, 64, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8a48"]
+atlas = ExtResource("2_msft3")
+region = Rect2(96, 64, 96, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yv047")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pga1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umwtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ude1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3u1rf")
+}],
+"loop": true,
+"name": &"bite",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umg3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etu43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxn0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8a48")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
