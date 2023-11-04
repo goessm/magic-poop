@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bs2xvpmiuu8mx"]
+
+[ext_resource type="Texture2D" uid="uid://d383555gu5r2b" path="res://icon.svg" id="1_v3coi"]
+[ext_resource type="Script" path="res://enemy.gd" id="1_v64mk"]
+[ext_resource type="Script" path="res://Health.gd" id="3_2o7oe"]
+
+[node name="Enemy" type="Node2D" node_paths=PackedStringArray("health") groups=["Enemies"]]
+script = ExtResource("1_v64mk")
+health = NodePath("Health")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_v3coi")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("3_2o7oe")

@@ -1,8 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://bx0cg2vohkqu2"]
+[gd_scene load_steps=4 format=3 uid="uid://bx0cg2vohkqu2"]
 
 [ext_resource type="Texture2D" uid="uid://d383555gu5r2b" path="res://icon.svg" id="1_60rwh"]
+[ext_resource type="PackedScene" uid="uid://cq5rwrev2gofy" path="res://spawn_point.tscn" id="3_5g1vv"]
+[ext_resource type="Script" path="res://Spawner.gd" id="3_bgexw"]
 
 [node name="PoopGame" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="dummysprite" type="Sprite2D" parent="."]
+position = Vector2(46, 109)
+rotation = -2.90941
+scale = Vector2(0.734375, 0.742188)
 texture = ExtResource("1_60rwh")
+
+[node name="Spawner" type="Node" parent="." node_paths=PackedStringArray("timer", "spawn_points")]
+script = ExtResource("3_bgexw")
+timer = NodePath("Timer")
+spawn_points = NodePath("SpawnPoints")
+
+[node name="Timer" type="Timer" parent="Spawner"]
+
+[node name="SpawnPoints" type="Node2D" parent="Spawner"]
+
+[node name="SpawnPoint" parent="Spawner/SpawnPoints" instance=ExtResource("3_5g1vv")]
+position = Vector2(960, 112)
+
+[node name="SpawnPoint6" parent="Spawner/SpawnPoints" instance=ExtResource("3_5g1vv")]
+position = Vector2(964, 479)
+
+[node name="SpawnPoint7" parent="Spawner/SpawnPoints" instance=ExtResource("3_5g1vv")]
+position = Vector2(319, 471)
