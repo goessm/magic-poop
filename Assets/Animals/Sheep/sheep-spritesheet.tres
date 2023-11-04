@@ -1,6 +1,7 @@
-[gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://vfhmbqjdp330"]
+[gd_resource type="SpriteFrames" load_steps=20 format=3 uid="uid://vfhmbqjdp330"]
 
 [ext_resource type="Texture2D" uid="uid://dm76157djjqr5" path="res://Assets/Animals/Sheep/sheep-bite.png" id="1_rq2mr"]
+[ext_resource type="Texture2D" uid="uid://bxh0lgokq1pm1" path="res://Assets/Animals/Sheep/sheep-poop.png" id="2_keoev"]
 [ext_resource type="Texture2D" uid="uid://bc8vdh8h8t8p6" path="res://Assets/Animals/Sheep/sheep-run.png" id="2_qqp0x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ictq0"]
@@ -22,6 +23,34 @@ region = Rect2(0, 64, 95, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ud2b"]
 atlas = ExtResource("1_rq2mr")
 region = Rect2(95, 64, 95, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ohcj"]
+atlas = ExtResource("1_rq2mr")
+region = Rect2(0, 0, 95, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jb8c"]
+atlas = ExtResource("2_keoev")
+region = Rect2(0, 0, 95, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru0cj"]
+atlas = ExtResource("2_keoev")
+region = Rect2(95, 0, 95, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4cqh"]
+atlas = ExtResource("2_keoev")
+region = Rect2(190, 0, 95, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hr6i8"]
+atlas = ExtResource("2_keoev")
+region = Rect2(0, 64, 95, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kp3ca"]
+atlas = ExtResource("2_keoev")
+region = Rect2(95, 64, 95, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpvb1"]
+atlas = ExtResource("2_keoev")
+region = Rect2(190, 64, 95, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ob5du"]
 atlas = ExtResource("2_qqp0x")
@@ -57,8 +86,39 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1ud2b")
 }],
-"loop": true,
+"loop": false,
 "name": &"bite",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ohcj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jb8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ru0cj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4cqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hr6i8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kp3ca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpvb1")
+}],
+"loop": true,
+"name": &"poop",
 "speed": 5.0
 }, {
 "frames": [{

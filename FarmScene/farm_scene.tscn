@@ -30,9 +30,11 @@ position = Vector2(116, 74)
 
 [node name="Animal2" parent="Farm" instance=ExtResource("1_2lqmr")]
 position = Vector2(208, 89)
+animalType = 1
 
 [node name="Animal3" parent="Farm" instance=ExtResource("1_2lqmr")]
 position = Vector2(44, 93)
+animalType = 2
 
 [node name="Animal4" parent="Farm" instance=ExtResource("1_2lqmr")]
 position = Vector2(161, 122)
