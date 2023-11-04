@@ -1,6 +1,9 @@
+class_name FollowMouse
 extends Node
 
 var parent: Node2D
+
+var follow = true
 
 func _ready():
 	var p = get_parent()
@@ -8,6 +11,9 @@ func _ready():
 		parent = p
 
 func _input(event):
+	if (!follow):
+		return
+		
 	if (!parent):
 		return
 	

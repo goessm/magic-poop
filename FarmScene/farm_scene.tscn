@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://d2lwdlovqpyli"]
 
-[ext_resource type="PackedScene" uid="uid://b0xmlhjr1ckxn" path="res://FarmScene/Animals/Cow/cow.tscn" id="1_2lqmr"]
+[ext_resource type="PackedScene" uid="uid://bu650ckv4ujxs" path="res://FarmScene/Animals/animal.tscn" id="1_2lqmr"]
 [ext_resource type="PackedScene" uid="uid://dy000kbix0vk1" path="res://FarmScene/Tilemaps/FarmBgTileMap.tscn" id="1_asobj"]
-[ext_resource type="PackedScene" path="res://FarmScene/Food/FoodItem.tscn" id="3_rqvr6"]
+[ext_resource type="PackedScene" uid="uid://qfygb7po01f4" path="res://FarmScene/Food/FoodItem.tscn" id="3_rqvr6"]
 
 [node name="FarmScene" type="Node"]
 
@@ -23,5 +23,5 @@ grow_vertical = 2
 
 [node name="apple" parent="Farm" instance=ExtResource("3_rqvr6")]
 
-[node name="Cow" parent="Farm" instance=ExtResource("1_2lqmr")]
-position = Vector2(559, 259)
+[node name="Animal" parent="Farm" instance=ExtResource("1_2lqmr")]
+position = Vector2(551, 294)
