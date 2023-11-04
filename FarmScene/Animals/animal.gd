@@ -7,6 +7,8 @@ extends Node2D
 
 @onready var animation_player = $AnimationPlayer
 @onready var poop_timer = $PoopTimer
+@onready var animated_sprite = $AnimatedSprite2D
+
 
 func _ready():
 	poop_timer.timeout.connect(poop)
@@ -26,6 +28,8 @@ func poop_animation_finished():
 
 func move(direction: Vector2):
 	position += direction
+	animated_sprite.flip_h = direction.x < 0
+	
 
 func _spawn_poop():
 	var poop = poopScene.instantiate()

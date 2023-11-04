@@ -26,3 +26,6 @@ mouse_filter = 1
 
 [node name="Animal" parent="Farm" instance=ExtResource("1_2lqmr")]
 position = Vector2(116, 74)
+
+[node name="Animal2" parent="Farm" instance=ExtResource("1_2lqmr")]
+position = Vector2(208, 89)
