@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://k0gd6emgogrd"]
+
+[ext_resource type="PackedScene" uid="uid://doedpmr6k2y5e" path="res://FarmScene/Poop/Poop.tscn" id="1_7rgwu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bnlft"]
+size = Vector2(16, 16)
+
+[node name="SheepPoop" instance=ExtResource("1_7rgwu")]
+type = 1
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(0, 24, 8, 8)
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_bnlft")

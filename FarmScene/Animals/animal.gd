@@ -14,7 +14,11 @@ enum AnimalType {
 
 @onready var animation_player = $AnimationPlayer
 @onready var poop_timer = $PoopTimer
-@onready var animated_sprite = $AnimatedSprite2D
+@onready var flip_on_turn = $FlipOnTurn
+@onready var animated_sprite = $FlipOnTurn/AnimatedSprite2D
+@onready var poop_hole = $FlipOnTurn/PoopHole
+
+
 
 
 func _ready():
@@ -50,7 +54,7 @@ func move(direction: Vector2):
 	if (animated_sprite.animation != "run"):
 		animated_sprite.play("run")
 	
-	animated_sprite.flip_h = direction.x < 0
+	flip_on_turn.scale.x = -1 if direction.x < 0 else 1
 
 func eat_grass():
 	if (animated_sprite.animation == "idle" || !animated_sprite.is_playing()):
@@ -58,8 +62,8 @@ func eat_grass():
 
 func _spawn_poop():
 	var poop = poopScene.instantiate()
-	get_parent().add_child(poop)
-	poop.position = position
+	get_parent().get_node("Poops").add_child(poop)
+	poop.global_position = poop_hole.global_position
 
 func _configure_animal_type():
 	poopScene = SceneList.animal_poops[animalType]

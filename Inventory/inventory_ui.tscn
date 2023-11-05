@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://m5d6owjwm0er"]
+
+[ext_resource type="PackedScene" uid="uid://b6l4yjnk56tif" path="res://Inventory/ItemDisplay/poop_item_display.tscn" id="1_dmxp6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdp8h"]
+bg_color = Color(0.341176, 0.490196, 0.254902, 1)
+
+[node name="InventoryUI" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 30.0
+grow_horizontal = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 135.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rdp8h")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PoopItemDisplay" parent="Panel/HBoxContainer" instance=ExtResource("1_dmxp6")]
+layout_mode = 2
+type = 1
+
+[node name="PoopItemDisplay2" parent="Panel/HBoxContainer" instance=ExtResource("1_dmxp6")]
+layout_mode = 2
+type = 3
+
+[node name="PoopItemDisplay3" parent="Panel/HBoxContainer" instance=ExtResource("1_dmxp6")]
+layout_mode = 2
+type = 2
+
+[node name="PoopItemDisplay4" parent="Panel/HBoxContainer" instance=ExtResource("1_dmxp6")]
+layout_mode = 2
+type = 4

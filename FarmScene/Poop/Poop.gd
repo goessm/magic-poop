@@ -3,12 +3,18 @@ extends Node2D
 
 enum PoopType {
 	Default,
-	Rainbow,
-	Rabbit
+	Sheep,
+	Dino,
+	Turtle,
+	Rainbow
 }
 
 @export var type: PoopType
 
+@onready var animation_player = $AnimationPlayer
+
+func _ready():
+	animation_player.play("poop_spawn")
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed:

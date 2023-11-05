@@ -71,11 +71,6 @@ texture = ExtResource("3_iaa33")
 region_enabled = true
 region_rect = Rect2(32, 32, 32, 32)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -15)
-sprite_frames = ExtResource("4_0gw8k")
-autoplay = "idle"
-
 [node name="FeedArea" parent="." instance=ExtResource("4_8f7w5")]
 position = Vector2(12, 3)
 
@@ -88,6 +83,17 @@ libraries = {
 
 [node name="PoopTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="FlipOnTurn" type="Node2D" parent="."]
+
+[node name="PoopHole" type="Marker2D" parent="FlipOnTurn"]
+position = Vector2(-17, 8)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FlipOnTurn"]
+position = Vector2(0, -15)
+sprite_frames = ExtResource("4_0gw8k")
+animation = &"bite"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 2)

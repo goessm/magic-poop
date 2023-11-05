@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2lwdlovqpyli"]
+[gd_scene load_steps=7 format=3 uid="uid://d2lwdlovqpyli"]
 
 [ext_resource type="PackedScene" uid="uid://bu650ckv4ujxs" path="res://FarmScene/Animals/animal.tscn" id="1_2lqmr"]
 [ext_resource type="PackedScene" uid="uid://dy000kbix0vk1" path="res://FarmScene/Tilemaps/FarmBgTileMap.tscn" id="1_asobj"]
+[ext_resource type="PackedScene" uid="uid://m5d6owjwm0er" path="res://Inventory/inventory_ui.tscn" id="1_ovg1h"]
 [ext_resource type="PackedScene" uid="uid://qfygb7po01f4" path="res://FarmScene/Food/FoodItem.tscn" id="3_rqvr6"]
 [ext_resource type="PackedScene" uid="uid://b3vt4xordthl2" path="res://FarmScene/Level/InvisibleWall/invisible_wall.tscn" id="4_rtxuc"]
 [ext_resource type="Script" path="res://FarmScene/Camera2D.gd" id="5_igwme"]
@@ -9,16 +10,9 @@
 [node name="FarmScene" type="Node"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
+layer = 0
 
-[node name="Background" type="Panel" parent="CanvasLayer"]
-modulate = Color(0.258824, 0.498039, 0.776471, 1)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
+[node name="InventoryUI" parent="CanvasLayer" instance=ExtResource("1_ovg1h")]
 
 [node name="Farm" type="Node2D" parent="."]
 
@@ -42,6 +36,8 @@ position = Vector2(161, 122)
 
 [node name="Animal5" parent="Farm" instance=ExtResource("1_2lqmr")]
 position = Vector2(83, 135)
+
+[node name="Poops" type="Node2D" parent="Farm"]
 
 [node name="Colliders" type="Node2D" parent="Farm"]
 

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkaem33hkwl0r"]
+
+[ext_resource type="PackedScene" uid="uid://doedpmr6k2y5e" path="res://FarmScene/Poop/Poop.tscn" id="1_2685c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pcma2"]
+size = Vector2(32, 30)
+
+[node name="DinoPoop" instance=ExtResource("1_2685c")]
+type = 2
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(16, 16, 16, 16)
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_pcma2")
