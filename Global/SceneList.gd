@@ -1,6 +1,7 @@
 extends Node
 
 # poops
+
 const normal_poop = preload("res://FarmScene/Poop/Poop.tscn")
 const sheep_poop = preload("res://FarmScene/Poop/Poops/sheep_poop.tscn")
 const dino_poop = preload("res://FarmScene/Poop/Poops/dino_poop.tscn")
@@ -25,6 +26,19 @@ const poop_sprites = {
 	Poop.PoopType.Turtle: turtle_poop_texture,
 	Poop.PoopType.Rainbow: rainbow_poop_texture
 }
+
+# food
+
+const food_sprites = {
+	FoodItem.FoodType.Apple: preload("res://FarmScene/Food/FoodSprites/apple_sprite.tres"),
+	FoodItem.FoodType.Cherry: preload("res://FarmScene/Food/FoodSprites/cherry_sprite.tres"),
+	FoodItem.FoodType.Banana: preload("res://FarmScene/Food/FoodSprites/banana_sprite.tres"),
+	FoodItem.FoodType.Watermelon: preload("res://FarmScene/Food/FoodSprites/watermelon_sprite.tres")
+}
+
+const food_item_scene = preload("res://FarmScene/Food/FoodItem.tscn")
+
+# animals
 
 const animal_sprites = {
 	Animal.AnimalType.Sheep: preload("res://Assets/Animals/Sheep/sheep-spritesheet.tres"),
