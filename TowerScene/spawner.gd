@@ -5,8 +5,8 @@ extends Node
 @export var timer: Timer
 @export var spawn_points: Node
 @export var enemy_types: Array[PackedScene]
-@export var spawn_every_seconds: float = 10.0
-@export var spawn_first_after_seconds: float = 2.5
+@export var spawn_every_seconds: float = 25.0
+@export var spawn_first_after_seconds: float = 25.0
 
 
 var _paused: bool = false

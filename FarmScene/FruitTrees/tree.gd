@@ -146,6 +146,10 @@ func _process(delta):
 
 
 func _on_input_event(viewport, event, shape_idx):
+	pass
+
+
+func _on_click_area_input_event(viewport, event, shape_idx):
 	if (is_tower):
 		print("is tower: cant transform anymore")
 		return
@@ -154,7 +158,9 @@ func _on_input_event(viewport, event, shape_idx):
 		return
 	
 	if (event is InputEventMouseButton and event.pressed):
+		print("clicked on tower")
 		if (GameState.held_poop != Poop.PoopType.Default && Inventory.get_poops(GameState.held_poop) > 0):
+				print("transforming")
 				Inventory.add_poop(GameState.held_poop, -1)
 				transform_into_a_tower()
 				GameState.held_poop = Poop.PoopType.Default
