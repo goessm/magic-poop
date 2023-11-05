@@ -45,3 +45,7 @@ const animal_sprites = {
 	Animal.AnimalType.Dino: preload("res://Assets/Animals/Dino/dino-spritesheet.tres"),
 	Animal.AnimalType.Turtle: preload("res://Assets/Animals/Turtle/turtle-spritesheet.tres")
 }
+
+# trees
+
+const tree_scene = preload("res://FarmScene/FruitTrees/tree.tscn")

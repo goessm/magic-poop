@@ -63,6 +63,7 @@ radius = 14.0
 height = 34.0
 
 [node name="Animal" type="CharacterBody2D" groups=["Animals"]]
+collision_mask = 3
 script = ExtResource("1_v1j0c")
 poopScene = ExtResource("2_70mkq")
 

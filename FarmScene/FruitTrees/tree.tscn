@@ -1,20 +1,123 @@
-[gd_scene load_steps=4 format=3 uid="uid://f44cu6eq7j6j"]
+[gd_scene load_steps=21 format=3 uid="uid://f44cu6eq7j6j"]
 
 [ext_resource type="Script" path="res://FarmScene/FruitTrees/tree.gd" id="1_623gs"]
-[ext_resource type="Texture2D" uid="uid://0yjlmmqqxbi6" path="res://Assets/Placeholders/Kenney/Farm/Tilemap/tilemap.png" id="1_bwllj"]
+[ext_resource type="Texture2D" uid="uid://bexctb5hv7tl2" path="res://Assets/Trees/apple-tree.png" id="2_p6m5t"]
+[ext_resource type="Texture2D" uid="uid://bwm1i57krmtbi" path="res://Assets/Trees/apple-fall.png" id="3_xso5d"]
+[ext_resource type="Script" path="res://TowerScene/Entities/health.gd" id="4_queof"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ug0go"]
+atlas = ExtResource("3_xso5d")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iw1gj"]
+atlas = ExtResource("3_xso5d")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d43s7"]
+atlas = ExtResource("3_xso5d")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tr0i2"]
+atlas = ExtResource("3_xso5d")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cpjl"]
+atlas = ExtResource("3_xso5d")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vp5sj"]
+atlas = ExtResource("3_xso5d")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tovna"]
+atlas = ExtResource("3_xso5d")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkg82"]
+atlas = ExtResource("3_xso5d")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ql0jd"]
+atlas = ExtResource("2_p6m5t")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdjk0"]
+atlas = ExtResource("2_p6m5t")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpq08"]
+atlas = ExtResource("2_p6m5t")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p3i06"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ug0go")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iw1gj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d43s7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tr0i2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cpjl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vp5sj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tovna")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkg82")
+}],
+"loop": true,
+"name": &"drop_fruit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ql0jd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdjk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpq08")
+}],
+"loop": true,
+"name": &"grow",
+"speed": 0.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0t6p"]
 size = Vector2(34, 45)
 
-[node name="Tree" type="StaticBody2D"]
+[sub_resource type="Theme" id="Theme_hht6m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y10su"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0t4mm"]
+bg_color = Color(0, 1, 0, 1)
+
+[node name="Tree" type="StaticBody2D" groups=["Animals"]]
 script = ExtResource("1_623gs")
 fruit_parent = NodePath("Fruits")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(3, 3)
-texture = ExtResource("1_bwllj")
-region_enabled = true
-region_rect = Rect2(210, 96, 16, 17)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p3i06")
+animation = &"grow"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 2.5)
@@ -24,5 +127,19 @@ shape = SubResource("RectangleShape2D_j0t6p")
 
 [node name="GrowTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("4_queof")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -25.0
+offset_top = -34.0
+offset_right = 25.0
+offset_bottom = -29.0
+theme = SubResource("Theme_hht6m")
+theme_override_styles/background = SubResource("StyleBoxFlat_y10su")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0t4mm")
+value = 100.0
+show_percentage = false
 
 [connection signal="timeout" from="GrowTimer" to="." method="_on_grow_timer_timeout"]

@@ -6,7 +6,7 @@ enum PoopType {
 	Sheep,
 	Dino,
 	Turtle,
-	Rainbow
+	Rainbow,
 }
 
 @export var type: PoopType

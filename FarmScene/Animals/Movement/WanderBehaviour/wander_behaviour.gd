@@ -33,13 +33,13 @@ func find_new_thing_to_do():
 	
 	if (is_moving && randf() <= stop_moving_chance):
 		# Decide to stop moving
-		print("stopped moving")
+		#print("stopped moving")
 		goalDirection = Vector2.ZERO
 		parent.move(Vector2.ZERO)
 	
 	if (!is_moving && randf() <= start_moving_chance):
 		# Decide to start moving
-		print("started moving")
+		#print("started moving")
 		goalDirection = Vector2(randf_range(-1, 1), randf_range(-1, 1))
 		return
 	

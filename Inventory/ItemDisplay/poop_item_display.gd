@@ -19,3 +19,8 @@ func update_display():
 
 func _on_inventory_change():
 	update_display()
+
+
+func _on_pressed():
+	print("selected " + str(type))
+	GameState.held_poop = type

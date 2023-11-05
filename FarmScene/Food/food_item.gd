@@ -9,6 +9,7 @@ extends Node
 @onready var follow_mouse: FollowMouse = $FollowMouse
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
+var getting_eaten_currently = false
 
 enum FoodType {
 	Apple,

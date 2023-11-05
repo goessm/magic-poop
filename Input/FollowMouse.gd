@@ -17,5 +17,5 @@ func _process(delta):
 	if (!parent):
 		return
 	
-	parent.position = parent.get_global_mouse_position()
+	parent.global_position = parent.get_global_mouse_position()
 
