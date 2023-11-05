@@ -64,6 +64,8 @@ func spawn_enemy():
 	#spawn_point.add_child(ins)
 	
 	ins.global_position = spawn_point.global_position
+	spawn_every_seconds *= 0.9
+	spawn_every_seconds = max(spawn_every_seconds, 4.0)
 
 
 func _on_timeout():

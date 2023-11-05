@@ -41,8 +41,7 @@ func drop_fruit():
 	animated_sprite.animation_finished.connect(_on_fruitdrop_animation_finished)
 
 func spawn_fruit():
-	if (fruit):
-		# old fruit still exists, don't spawn
+	if (is_tower):
 		return
 	
 	var spawned_fruit: FoodItem = SceneList.food_item_scene.instantiate()
