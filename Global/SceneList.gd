@@ -49,3 +49,8 @@ const animal_sprites = {
 # trees
 
 const tree_scene = preload("res://FarmScene/FruitTrees/tree.tscn")
+
+# sounds
+
+const poop_sound = preload("res://Assets/Sound/DinosAndPoop/SFX_DinoPoop.wav")
+const eat_sound = preload("res://Assets/Sound/DinosAndPoop/SFX_Eat_Crunch.wav")

@@ -44,6 +44,8 @@ func digest_food(food: FoodItem):
 func poop():
 	print("pooping")
 	animation_player.play("poop")
+	SoundEffects.stream = SceneList.poop_sound
+	SoundEffects.play()
 
 func poop_animation_finished():
 	_spawn_poop()

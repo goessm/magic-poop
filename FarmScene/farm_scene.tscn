@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2lwdlovqpyli"]
+[gd_scene load_steps=10 format=3 uid="uid://d2lwdlovqpyli"]
 
 [ext_resource type="PackedScene" uid="uid://bu650ckv4ujxs" path="res://FarmScene/Animals/animal.tscn" id="1_2lqmr"]
 [ext_resource type="PackedScene" uid="uid://dy000kbix0vk1" path="res://FarmScene/Tilemaps/FarmBgTileMap.tscn" id="1_asobj"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://FarmScene/Camera2D.gd" id="5_igwme"]
 [ext_resource type="PackedScene" uid="uid://f44cu6eq7j6j" path="res://FarmScene/FruitTrees/tree.tscn" id="6_8f7qp"]
 [ext_resource type="PackedScene" uid="uid://bwa36ys7tpcnx" path="res://TowerScene/spawner.tscn" id="6_mabnc"]
+[ext_resource type="PackedScene" uid="uid://jx4samyjn6ec" path="res://sound/sound_effects.tscn" id="9_d2vks"]
 
 [node name="FarmScene" type="Node"]
 
@@ -96,3 +97,5 @@ limit_bottom = 340
 editor_draw_limits = true
 script = ExtResource("5_igwme")
 speed = 250.0
+
+[node name="SoundEffects" parent="." instance=ExtResource("9_d2vks")]
