@@ -15,18 +15,16 @@ enum AnimalType {
 @onready var animation_player = $AnimationPlayer
 @onready var poop_timer = $PoopTimer
 @onready var flip_on_turn = $FlipOnTurn
-@onready var animated_sprite = $FlipOnTurn/AnimatedSprite2D
+@onready var animated_sprite: AnimatedSprite2D = $FlipOnTurn/AnimatedSprite2D
 @onready var poop_hole = $FlipOnTurn/PoopHole
 @onready var health = $Health
-
-
-
 
 func _ready():
 	_configure_animal_type()
 	poop_timer.timeout.connect(poop)
 	health.init(100)
 	health.health_changed.connect(_on_health_changed)
+	animated_sprite.frame_changed.connect(_on_animation_frame)
 
 func _physics_process(delta):
 	move_and_slide()
@@ -35,20 +33,23 @@ func _physics_process(delta):
 		animated_sprite.play("idle")
 	
 
-var allow_to_be_moved := true
+var allow_to_be_moved := true # block movement while pooping
 
 func digest_food(food: FoodItem):
 	print("digesting")
+	animated_sprite.play("bite")
 	poop_timer.start(food.digest_time)
 
 func poop():
 	print("pooping")
-	animation_player.play("poop")
-	SoundEffects.stream = SceneList.poop_sound
-	SoundEffects.play()
+	#animation_player.play("poop")
+	allow_to_be_moved = false
+	animated_sprite.play("poop")
+	animated_sprite.animation_finished.connect(poop_animation_finished)
 
 func poop_animation_finished():
-	_spawn_poop()
+	animated_sprite.animation_finished.disconnect(poop_animation_finished) # not sure if needed, seems like signal connect is idempotent?
+	allow_to_be_moved = true
 
 func move(direction: Vector2):
 	velocity = direction
@@ -70,6 +71,10 @@ func _spawn_poop():
 	get_parent().get_node("Poops").add_child(poop)
 	poop.global_position = poop_hole.global_position
 
+func _play_poop_sound():
+	SoundEffects.stream = SceneList.poop_sound
+	SoundEffects.play()
+
 func _configure_animal_type():
 	poopScene = SceneList.animal_poops[animalType]
 	animated_sprite.sprite_frames = SceneList.animal_sprites[animalType]
@@ -88,3 +93,14 @@ func _on_health_changed(obj, val):
 	if val <= 0:
 		emit_signal("died", self)
 		queue_free()
+
+func _on_animation_frame():
+	if (animated_sprite.animation == "poop"):
+		_on_poop_animation_frame(animated_sprite.frame)
+
+func _on_poop_animation_frame(frame: int):
+	if (frame == max(0, animated_sprite.sprite_frames.get_frame_count("poop") - 2)):
+			_play_poop_sound()
+			
+	if (frame == max(0, animated_sprite.sprite_frames.get_frame_count("poop") - 1)):
+			_spawn_poop()

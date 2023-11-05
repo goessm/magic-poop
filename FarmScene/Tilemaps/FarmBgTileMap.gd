@@ -3,7 +3,7 @@ extends TileMap
 @onready var tile_highlight = $TileHighlight
 @export var highlight_active: bool = true : set = set_highlight_active
 var highlighted_tile:Vector2i
-var planted_trees : Array[Vector2] =  []
+var planted_trees : Array[Vector2i] =  []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -43,9 +43,7 @@ func _unhandled_input(event):
 			if (GameState.held_poop != Poop.PoopType.Default && Inventory.get_poops(GameState.held_poop) > 0):
 				Inventory.add_poop(GameState.held_poop, -1)
 				spawn_tree(tile_highlight.position)
-				#GameState.held_poop = Poop.PoopType.Default
-				planted_trees.push_back(highlighted_tile)
-				#GameState.tree_positions.push_back(highlighted_tile)
+				GameState.set_held_poop(Poop.PoopType.Default)
 				pass
 
 func set_highlight_active(value):

@@ -124,7 +124,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g25ri")
 }],
-"loop": true,
+"loop": false,
 "name": &"poop",
 "speed": 5.0
 }, {

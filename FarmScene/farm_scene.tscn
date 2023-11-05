@@ -1,17 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2lwdlovqpyli"]
+[gd_scene load_steps=10 format=3 uid="uid://d2lwdlovqpyli"]
 
 [ext_resource type="PackedScene" uid="uid://bu650ckv4ujxs" path="res://FarmScene/Animals/animal.tscn" id="1_2lqmr"]
 [ext_resource type="PackedScene" uid="uid://dy000kbix0vk1" path="res://FarmScene/Tilemaps/FarmBgTileMap.tscn" id="1_asobj"]
+[ext_resource type="Script" path="res://FarmScene/farm_scene.gd" id="1_i3veu"]
 [ext_resource type="PackedScene" uid="uid://m5d6owjwm0er" path="res://Inventory/inventory_ui.tscn" id="1_ovg1h"]
 [ext_resource type="PackedScene" uid="uid://qfygb7po01f4" path="res://FarmScene/Food/FoodItem.tscn" id="3_rqvr6"]
 [ext_resource type="PackedScene" uid="uid://b3vt4xordthl2" path="res://FarmScene/Level/InvisibleWall/invisible_wall.tscn" id="4_rtxuc"]
 [ext_resource type="Script" path="res://FarmScene/Camera2D.gd" id="5_igwme"]
 [ext_resource type="PackedScene" uid="uid://f44cu6eq7j6j" path="res://FarmScene/FruitTrees/tree.tscn" id="6_8f7qp"]
 [ext_resource type="PackedScene" uid="uid://bwa36ys7tpcnx" path="res://TowerScene/spawner.tscn" id="6_mabnc"]
-[ext_resource type="Script" path="res://FarmScene/Music.gd" id="8_2vjfg"]
-[ext_resource type="PackedScene" uid="uid://jx4samyjn6ec" path="res://sound/sound_effects.tscn" id="9_d2vks"]
 
 [node name="FarmScene" type="Node"]
+script = ExtResource("1_i3veu")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
@@ -89,13 +89,6 @@ position = Vector2(316, 99)
 
 [node name="Trees" type="Node2D" parent="Farm"]
 
-[node name="Music" type="AudioStreamPlayer2D" parent="Farm"]
-script = ExtResource("8_2vjfg")
-
-[node name="Timer" type="Timer" parent="Farm/Music"]
-wait_time = 25.0
-autostart = true
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(25, 109)
 limit_left = -155
@@ -105,7 +98,3 @@ limit_bottom = 340
 editor_draw_limits = true
 script = ExtResource("5_igwme")
 speed = 250.0
-
-[node name="SoundEffects" parent="." instance=ExtResource("9_d2vks")]
-
-[connection signal="timeout" from="Farm/Music/Timer" to="Farm/Music" method="_on_timer_timeout"]

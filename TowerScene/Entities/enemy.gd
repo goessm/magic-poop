@@ -39,6 +39,8 @@ func _ready():
 	
 	attack_timer.timeout.connect(attack)
 	attack_timer.one_shot = true
+	
+	Music.play_combat()
 
 
 # checks colliding objects and deals damage
@@ -112,6 +114,7 @@ func _on_health_changed(obj, val):
 	#print("_on_health_changed ", obj, val, ", ", health.max_health)
 	health_bar.set_value_no_signal(100 * val / health.max_health)
 	if val <= 0:
+		remove_from_group(Groups.Enemies)
 		emit_signal("died", self)
 		queue_free()
 

@@ -7,6 +7,7 @@
 
 [node name="PoopItemDisplay" type="Button"]
 custom_minimum_size = Vector2(30, 0)
+focus_mode = 1
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5giie")
 script = ExtResource("1_exapw")
 

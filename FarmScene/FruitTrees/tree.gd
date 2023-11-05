@@ -44,6 +44,9 @@ func spawn_fruit():
 	if (is_tower):
 		return
 	
+	if (fruit != null):
+		return #  old fruit still exists
+	
 	var spawned_fruit: FoodItem = SceneList.food_item_scene.instantiate()
 	spawned_fruit.type = fruit_type
 	get_node(fruit_parent).add_child(spawned_fruit)
@@ -67,13 +70,13 @@ func _update_growing_sprite():
 		return
 	
 	# grow stage sprites
-	var frame = 1
+	var frame = 0
 	
 	match (stage):
 		GrowthStage.Seed:
-			frame = 1
+			frame = 0
 		GrowthStage.Growing:
-			frame = 2
+			frame = 1
 	
 	animated_sprite.play("grow")
 	animated_sprite.pause()
@@ -162,5 +165,5 @@ func _on_click_area_input_event(viewport, event, shape_idx):
 				print("transforming")
 				Inventory.add_poop(GameState.held_poop, -1)
 				transform_into_a_tower()
-				GameState.held_poop = Poop.PoopType.Default
+				GameState.set_held_poop(Poop.PoopType.Default)
 				pass

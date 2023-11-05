@@ -24,6 +24,7 @@ Enums="*res://Global/Enums.gd"
 SceneList="*res://Global/SceneList.gd"
 GameState="*res://Global/GameState.gd"
 SoundEffects="*res://sound/sound_effects.tscn"
+Music="*res://sound/music.tscn"
 
 [display]
 

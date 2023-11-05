@@ -5,8 +5,8 @@ extends Node
 @export var timer: Timer
 @export var spawn_points: Node
 @export var enemy_types: Array[PackedScene]
-@export var spawn_every_seconds: float = 25.0
-@export var spawn_first_after_seconds: float = 25.0
+@export var spawn_every_seconds: float = 30.0
+@export var spawn_first_after_seconds: float = 30.0
 
 
 var _paused: bool = false
@@ -62,6 +62,7 @@ func spawn_enemy():
 	#ins.position = spawn_point.position
 	get_parent().get_node("Enemies").add_child(ins)
 	#spawn_point.add_child(ins)
+	ins.died.connect(_on_enemy_died)
 	
 	ins.global_position = spawn_point.global_position
 	spawn_every_seconds *= 0.9
@@ -74,3 +75,8 @@ func _on_timeout():
 	spawn_enemy()
 	timer.start(spawn_every_seconds)
 	pass
+
+func _on_enemy_died(enemy):
+	if (get_tree().get_nodes_in_group(Groups.Enemies).is_empty()):
+		# no more enemies
+		Music.play_maintheme()

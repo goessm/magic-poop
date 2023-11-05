@@ -171,7 +171,7 @@ shape = SubResource("RectangleShape2D_j0t6p")
 [node name="Fruits" type="Node2D" parent="."]
 
 [node name="GrowTimer" type="Timer" parent="."]
-wait_time = 12.0
+wait_time = 6.0
 autostart = true
 
 [node name="Health" type="Node" parent="."]
