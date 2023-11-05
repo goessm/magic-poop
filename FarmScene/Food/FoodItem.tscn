@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://qfygb7po01f4"]
 
 [ext_resource type="Script" path="res://FarmScene/Food/food_item.gd" id="1_og02d"]
-[ext_resource type="Texture2D" uid="uid://ccf7vsltur1ul" path="res://Assets/Placeholders/Kenney/Farm/Tiles/tile_0004.png" id="2_fy2aj"]
+[ext_resource type="Texture2D" uid="uid://c6dycaikxxxai" path="res://FarmScene/Food/FoodSprites/apple_sprite.tres" id="2_e8dap"]
 [ext_resource type="Script" path="res://Input/FollowMouse.gd" id="3_363r1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rmn4v"]
@@ -62,11 +62,12 @@ script = ExtResource("1_og02d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -2)
-texture = ExtResource("2_fy2aj")
+texture = ExtResource("2_e8dap")
 
 [node name="CollisionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
+position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_rmn4v")
 
 [node name="FollowMouse" type="Node" parent="."]

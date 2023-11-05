@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://f44cu6eq7j6j"]
+
+[ext_resource type="Script" path="res://FarmScene/FruitTrees/tree.gd" id="1_623gs"]
+[ext_resource type="Texture2D" uid="uid://0yjlmmqqxbi6" path="res://Assets/Placeholders/Kenney/Farm/Tilemap/tilemap.png" id="1_bwllj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0t6p"]
+size = Vector2(34, 45)
+
+[node name="Tree" type="StaticBody2D"]
+script = ExtResource("1_623gs")
+fruit_parent = NodePath("Fruits")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_bwllj")
+region_enabled = true
+region_rect = Rect2(210, 96, 16, 17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 2.5)
+shape = SubResource("RectangleShape2D_j0t6p")
+
+[node name="Fruits" type="Node2D" parent="."]
+
+[node name="GrowTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="GrowTimer" to="." method="_on_grow_timer_timeout"]
