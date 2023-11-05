@@ -60,16 +60,15 @@ func spawn_enemy():
 		print("cant spawn: no spawn points defined")
 		return
 	var spawn_point = spawn_points_arr.pick_random()
-	var ins = enemy_type.instantiate()
+	var ins: Enemy = enemy_type.instantiate()
 	#ins.position = spawn_point.position
+	ins.max_health += spawned_count * 100
+	ins.attack_strength += spawned_count
 	get_parent().get_node("Enemies").add_child(ins)
 	#spawn_point.add_child(ins)
 	ins.died.connect(_on_enemy_died)
 	
 	ins.global_position = spawn_point.global_position
-	var enemy: Enemy = ins
-	enemy.max_health += spawned_count * 50000
-	enemy.attack_strength += spawned_count
 	spawned_count = spawned_count + 1
 	#spawn_every_seconds *= 0.9
 	#spawn_every_seconds = max(spawn_every_seconds, 4.0)
