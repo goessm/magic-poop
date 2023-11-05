@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bw3o54y7c8sa6"]
+[gd_scene load_steps=4 format=3 uid="uid://bw3o54y7c8sa6"]
 
 [ext_resource type="Script" path="res://Menu/MainMenu.gd" id="1_5rrp0"]
-[ext_resource type="Texture2D" uid="uid://bexctb5hv7tl2" path="res://Assets/Trees/apple-tree.png" id="2_o5p31"]
+[ext_resource type="Texture2D" uid="uid://7jo1hev11hlu" path="res://Assets/UI/titlescreen.png" id="2_1gj7j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohbic"]
+bg_color = Color(0.298039, 0.517647, 0.294118, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -12,6 +15,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5rrp0")
 
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ohbic")
+
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -19,17 +31,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_o5p31")
+texture = ExtResource("2_1gj7j")
 expand_mode = 2
 stretch_mode = 4
 
 [node name="Button" type="Button" parent="."]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 0
-offset_left = 158.0
-offset_top = 157.0
-offset_right = 166.0
-offset_bottom = 165.0
+offset_left = 253.0
+offset_top = 110.0
+offset_right = 353.0
+offset_bottom = 160.0
 
 [node name="Label" type="Label" parent="Button"]
 layout_mode = 1
