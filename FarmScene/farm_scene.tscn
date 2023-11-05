@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2lwdlovqpyli"]
+[gd_scene load_steps=6 format=3 uid="uid://d2lwdlovqpyli"]
 
 [ext_resource type="PackedScene" uid="uid://bu650ckv4ujxs" path="res://FarmScene/Animals/animal.tscn" id="1_2lqmr"]
 [ext_resource type="PackedScene" uid="uid://dy000kbix0vk1" path="res://FarmScene/Tilemaps/FarmBgTileMap.tscn" id="1_asobj"]
 [ext_resource type="PackedScene" uid="uid://qfygb7po01f4" path="res://FarmScene/Food/FoodItem.tscn" id="3_rqvr6"]
 [ext_resource type="PackedScene" uid="uid://b3vt4xordthl2" path="res://FarmScene/Level/InvisibleWall/invisible_wall.tscn" id="4_rtxuc"]
+[ext_resource type="Script" path="res://FarmScene/Camera2D.gd" id="5_igwme"]
 
 [node name="FarmScene" type="Node"]
 
@@ -61,3 +62,13 @@ scale = Vector2(2.44, 1)
 position = Vector2(281, 155)
 rotation = 1.5708
 scale = Vector2(1.68, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(25, 109)
+limit_left = -155
+limit_top = -100
+limit_right = 575
+limit_bottom = 340
+editor_draw_limits = true
+script = ExtResource("5_igwme")
+speed = 250.0
