@@ -155,6 +155,7 @@ bg_color = Color(0, 1, 0, 1)
 [node name="Tree" type="StaticBody2D" groups=["Animals"]]
 script = ExtResource("1_623gs")
 fruit_parent = NodePath("Fruits")
+infinite_ammo = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_p3i06")
@@ -183,4 +184,5 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_0t4mm")
 value = 100.0
 show_percentage = false
 
+[connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="timeout" from="GrowTimer" to="." method="_on_grow_timer_timeout"]

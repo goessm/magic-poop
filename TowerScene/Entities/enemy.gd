@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var path_follow: PathFollow2D
 @export var sprite: Sprite2D
 @export var health_bar: ProgressBar
-@export var attack_strength: int = 20
+@export var attack_strength: int = 2
 @export var speed: float = 80.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_timer = $AttackTimer

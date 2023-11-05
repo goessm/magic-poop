@@ -54,3 +54,7 @@ const tree_scene = preload("res://FarmScene/FruitTrees/tree.tscn")
 
 const poop_sound = preload("res://Assets/Sound/DinosAndPoop/SFX_DinoPoop.wav")
 const eat_sound = preload("res://Assets/Sound/DinosAndPoop/SFX_Eat_Crunch.wav")
+
+#tower
+
+const tower_scene = preload("res://TowerScene/tower.tscn")

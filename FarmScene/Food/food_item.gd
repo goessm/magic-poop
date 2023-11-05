@@ -25,6 +25,8 @@ func _ready():
 	sprite_2d.texture = SceneList.food_sprites[type]
 
 func get_eaten():
+	SoundEffects.stream = SceneList.eat_sound
+	SoundEffects.play()
 	follow_mouse.follow = false
 	animation_player.play("get_eaten")
 

@@ -23,6 +23,7 @@ func _unhandled_input(event):
 			if (GameState.held_poop != Poop.PoopType.Default && Inventory.get_poops(GameState.held_poop) > 0):
 				Inventory.add_poop(GameState.held_poop, -1)
 				spawn_tree(tile_highlight.position)
+				GameState.held_poop = Poop.PoopType.Default
 				pass
 
 func set_highlight_active(value):
@@ -33,3 +34,7 @@ func spawn_tree(pos):
 	var tree = SceneList.tree_scene.instantiate()
 	get_parent().get_node("Trees").add_child(tree)
 	tree.position = pos
+
+
+func _on_timer_timeout():
+	pass # Replace with function body.
