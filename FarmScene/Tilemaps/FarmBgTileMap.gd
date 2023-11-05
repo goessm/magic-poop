@@ -19,11 +19,14 @@ func _unhandled_input(event):
 			tile_highlight.position = map_to_local(highlighted_tile)
 	elif event is InputEventMouseButton:
 		if event.button_mask & 1 and event.pressed:
+			if (GameState.tree_positions.has(highlighted_tile)):
+				return
 			print(event)
 			if (GameState.held_poop != Poop.PoopType.Default && Inventory.get_poops(GameState.held_poop) > 0):
 				Inventory.add_poop(GameState.held_poop, -1)
 				spawn_tree(tile_highlight.position)
 				GameState.held_poop = Poop.PoopType.Default
+				GameState.tree_positions.push_back(highlighted_tile)
 				pass
 
 func set_highlight_active(value):

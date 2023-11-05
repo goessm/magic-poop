@@ -33,7 +33,7 @@ func _ready():
 	_time_since_shot = shoot_cooldown
 	ammo = 100
 	
-	transform_into_a_tower()
+	#transform_into_a_tower()
 
 func drop_fruit():
 	animated_sprite.play("drop_fruit")
@@ -52,7 +52,7 @@ func spawn_fruit():
 
 
 func _on_grow_timer_timeout():
-	print("grow timer")
+	#print("grow timer")
 	if (stage == GrowthStage.Grown):
 		spawn_fruit()
 	else:
@@ -104,6 +104,7 @@ func _on_health_changed(obj, val):
 		queue_free()
 
 func transform_into_a_tower():
+	print("transforming")
 	animated_sprite.play("tower_attack")
 	animated_sprite.pause()
 	is_tower = true
@@ -146,6 +147,7 @@ func _process(delta):
 
 func _on_input_event(viewport, event, shape_idx):
 	if (is_tower):
+		print("is tower: cant transform anymore")
 		return
 	
 	if (stage != GrowthStage.Grown):
