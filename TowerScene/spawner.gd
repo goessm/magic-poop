@@ -11,6 +11,8 @@ extends Node
 
 var _paused: bool = false
 
+var spawned_count = 0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -65,8 +67,12 @@ func spawn_enemy():
 	ins.died.connect(_on_enemy_died)
 	
 	ins.global_position = spawn_point.global_position
-	spawn_every_seconds *= 0.9
-	spawn_every_seconds = max(spawn_every_seconds, 4.0)
+	var enemy: Enemy = ins
+	enemy.max_health += spawned_count * 50000
+	enemy.attack_strength += spawned_count
+	spawned_count = spawned_count + 1
+	#spawn_every_seconds *= 0.9
+	#spawn_every_seconds = max(spawn_every_seconds, 4.0)
 
 
 func _on_timeout():

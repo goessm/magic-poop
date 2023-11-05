@@ -153,7 +153,7 @@ func _on_input_event(viewport, event, shape_idx):
 
 func _on_click_area_input_event(viewport, event, shape_idx):
 	if (is_tower):
-		print("is tower: cant transform anymore")
+		#print("is tower: cant transform anymore")
 		return
 	
 	if (stage != GrowthStage.Grown):

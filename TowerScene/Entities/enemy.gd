@@ -16,6 +16,7 @@ var _anim_state = ANIM_STATE.RUNNING
 var _bite_anim_time: float = 0.8 # depends on animated_sprite_2d
 var _attack_target = null
 
+var max_health = 100
 
 signal died(obj)
 
@@ -30,7 +31,7 @@ func change_anim_state(new_state):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	health.init(100)
+	health.init(max_health)
 	health.health_changed.connect(_on_health_changed)
 	position = path_follow.position
 	# sprite animation must be in sync with animState
