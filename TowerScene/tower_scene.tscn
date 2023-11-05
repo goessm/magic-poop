@@ -12,3 +12,5 @@ position = Vector2(58, 148)
 
 [node name="Tower2" parent="." groups=["Animals"] instance=ExtResource("2_wl7tk")]
 position = Vector2(329, 145)
+
+[node name="Enemies" type="Node2D" parent="."]

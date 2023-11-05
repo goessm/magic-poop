@@ -10,11 +10,11 @@ script = ExtResource("1_vdnjm")
 collision_shape = NodePath("CollisionShape2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.024265, 0.0207493)
+scale = Vector2(0.0145515, 0.0124431)
 texture = ExtResource("2_2hugr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1.19969, 1.19969)
+scale = Vector2(0.700992, 0.700992)
 shape = SubResource("CircleShape2D_jlfxh")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2lwdlovqpyli"]
+[gd_scene load_steps=8 format=3 uid="uid://d2lwdlovqpyli"]
 
 [ext_resource type="PackedScene" uid="uid://bu650ckv4ujxs" path="res://FarmScene/Animals/animal.tscn" id="1_2lqmr"]
 [ext_resource type="PackedScene" uid="uid://dy000kbix0vk1" path="res://FarmScene/Tilemaps/FarmBgTileMap.tscn" id="1_asobj"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://qfygb7po01f4" path="res://FarmScene/Food/FoodItem.tscn" id="3_rqvr6"]
 [ext_resource type="PackedScene" uid="uid://b3vt4xordthl2" path="res://FarmScene/Level/InvisibleWall/invisible_wall.tscn" id="4_rtxuc"]
 [ext_resource type="Script" path="res://FarmScene/Camera2D.gd" id="5_igwme"]
+[ext_resource type="PackedScene" uid="uid://bwa36ys7tpcnx" path="res://TowerScene/spawner.tscn" id="6_mabnc"]
 
 [node name="FarmScene" type="Node"]
 
@@ -45,6 +46,10 @@ position = Vector2(83, 135)
 position = Vector2(122, 47)
 scale = Vector2(2.44, 1)
 
+[node name="InvisibleWall5" parent="Farm/Colliders" instance=ExtResource("4_rtxuc")]
+position = Vector2(330, 22)
+scale = Vector2(2.44, 1)
+
 [node name="InvisibleWall2" parent="Farm/Colliders" instance=ExtResource("4_rtxuc")]
 position = Vector2(-39, 152)
 rotation = 1.5708
@@ -55,9 +60,22 @@ position = Vector2(122, 266)
 scale = Vector2(2.44, 1)
 
 [node name="InvisibleWall4" parent="Farm/Colliders" instance=ExtResource("4_rtxuc")]
-position = Vector2(281, 155)
+position = Vector2(282, 149)
 rotation = 1.5708
 scale = Vector2(1.68, 1)
+
+[node name="Spawner" parent="Farm" node_paths=PackedStringArray("spawn_points") instance=ExtResource("6_mabnc")]
+spawn_points = NodePath("../SpawnPoints2")
+
+[node name="SpawnPoints2" type="Node2D" parent="Farm"]
+
+[node name="SpawnPoint1" type="Marker2D" parent="Farm/SpawnPoints2"]
+position = Vector2(434, 93)
+
+[node name="SpawnPoint2" type="Marker2D" parent="Farm/SpawnPoints2"]
+position = Vector2(434, 148)
+
+[node name="Enemies" type="Node2D" parent="Farm"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(25, 109)

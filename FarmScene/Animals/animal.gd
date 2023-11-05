@@ -17,6 +17,7 @@ enum AnimalType {
 @onready var flip_on_turn = $FlipOnTurn
 @onready var animated_sprite = $FlipOnTurn/AnimatedSprite2D
 @onready var poop_hole = $FlipOnTurn/PoopHole
+@onready var health = $Health
 
 
 
@@ -24,6 +25,8 @@ enum AnimalType {
 func _ready():
 	_configure_animal_type()
 	poop_timer.timeout.connect(poop)
+	health.init(100)
+	health.health_changed.connect(_on_health_changed)
 
 func _physics_process(delta):
 	move_and_slide()
@@ -68,3 +71,18 @@ func _spawn_poop():
 func _configure_animal_type():
 	poopScene = SceneList.animal_poops[animalType]
 	animated_sprite.sprite_frames = SceneList.animal_sprites[animalType]
+
+func is_dead() -> bool:
+	return health.health <= 0
+
+func take_damage_from_enemy(amount: int):
+	var hit_particle_scene: PackedScene = preload("res://TowerScene/Entities/hit_particle.tscn")
+	var particle = hit_particle_scene.instantiate()
+	add_child(particle)
+	health.takeDamage(amount)
+
+func _on_health_changed(obj, val):
+	#health_bar.set_value_no_signal(100 * val / health.max_health)
+	if val <= 0:
+		emit_signal("died", self)
+		queue_free()

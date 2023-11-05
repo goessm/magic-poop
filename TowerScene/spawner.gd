@@ -16,9 +16,13 @@ var _paused: bool = false
 func _ready():
 	var enemy_scene: PackedScene = preload("res://TowerScene/Entities/enemy.tscn")
 	enemy_types.push_back(enemy_scene)
+	var enemy_scene2: PackedScene = preload("res://TowerScene/Entities/enemy_flyer.tscn")
+	enemy_types.push_back(enemy_scene2)
+	
 	timer.timeout.connect(_on_timeout)
 	timer.one_shot = true
 	timer.start(spawn_first_after_seconds)
+	#spawn_points.push_back(Vector2(1,1))
 
 
 func init(_enemy_types: Array):
@@ -55,8 +59,11 @@ func spawn_enemy():
 		return
 	var spawn_point = spawn_points_arr.pick_random()
 	var ins = enemy_type.instantiate()
-	ins.position = spawn_point.position
-	add_child(ins)
+	#ins.position = spawn_point.position
+	get_parent().get_node("Enemies").add_child(ins)
+	#spawn_point.add_child(ins)
+	
+	ins.global_position = spawn_point.global_position
 
 
 func _on_timeout():

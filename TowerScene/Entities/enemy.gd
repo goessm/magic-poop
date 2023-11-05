@@ -33,7 +33,10 @@ func _ready():
 	health.init(100)
 	health.health_changed.connect(_on_health_changed)
 	position = path_follow.position
-	animated_sprite_2d.play("run")
+	# sprite animation must be in sync with animState
+	animated_sprite_2d.play("bite")
+	change_anim_state(ANIM_STATE.BITING)
+	
 	attack_timer.timeout.connect(attack)
 	attack_timer.one_shot = true
 
@@ -44,7 +47,7 @@ func attack():
 	for i in range(num_collisions):
 		var coll = get_slide_collision(i)
 		var obj = coll.get_collider()
-		if obj.has_method("take_damage_from_enemy"):
+		if obj && obj.has_method("take_damage_from_enemy"):
 			obj.take_damage_from_enemy(attack_strength)
 			break
 
@@ -56,7 +59,9 @@ func _process(delta):
 	if _attack_target == null:
 		var targets = get_tree().get_nodes_in_group(Groups.Animals)
 		if targets.is_empty():
-			# TODO idle anim?
+			# set idle anim (jk its the run anim)
+			if change_anim_state(ANIM_STATE.RUNNING):
+				animated_sprite_2d.play("run")
 			return
 		# select new target
 		_attack_target = targets.pick_random()
@@ -71,26 +76,26 @@ func hunt_update(delta, target: Node2D):
 	#move toward target
 	var last_pos = position
 	velocity = speed * diff_vec.normalized()
+	animated_sprite_2d.flip_h = velocity.x < 0
 	var colliding = move_and_slide()
 	var num_collisions = get_slide_collision_count()
+	var colliding_with_prey = false
 	for i in range(num_collisions):
 		var coll = get_slide_collision(i)
 		var obj = coll.get_collider()
 		if obj.has_method("take_damage_from_enemy") && attack_timer.is_stopped():
 			attack_timer.start(_bite_anim_time)
-	if colliding: # TODO add attack distance?
+			colliding_with_prey = true
+			print("Started attack timer")
+			break
+	if colliding_with_prey: # TODO add attack distance?
 		# do damage to animal and start animation
 		if change_anim_state(ANIM_STATE.BITING):
 			animated_sprite_2d.play("bite")
 	else:
-		if change_anim_state(ANIM_STATE.RUNNING):
-			animated_sprite_2d.play("run")
-	var eps: float = 0.01
-	if position.x + eps < last_pos.x:
-		animated_sprite_2d.flip_h = true
-	if position.x > last_pos.x + eps:
-		animated_sprite_2d.flip_h = false
-	#animated_sprite_2d.flip_h = position.x < last_pos.x
+		if !animated_sprite_2d.is_playing():
+			if change_anim_state(ANIM_STATE.RUNNING):
+				animated_sprite_2d.play("run")
 	pass
 
 
@@ -109,3 +114,6 @@ func _on_health_changed(obj, val):
 	if val <= 0:
 		emit_signal("died", self)
 		queue_free()
+
+func _on_animation_finished():
+	print("anim finished")

@@ -30,10 +30,10 @@ shape = SubResource("RectangleShape2D_sl4tf")
 script = ExtResource("3_5baes")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = -30.0
+offset_left = -25.0
 offset_top = -34.0
-offset_right = 30.0
-offset_bottom = -26.0
+offset_right = 25.0
+offset_bottom = -29.0
 theme = SubResource("Theme_j5b2k")
 theme_override_styles/background = SubResource("StyleBoxFlat_gma78")
 theme_override_styles/fill = SubResource("StyleBoxFlat_vd3li")

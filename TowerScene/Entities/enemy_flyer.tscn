@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://b3g5qsobrhd03"]
+[gd_scene load_steps=10 format=3 uid="uid://bm2qbwsonsgx7"]
 
-[ext_resource type="Script" path="res://TowerScene/Entities/enemy.gd" id="1_3ijvh"]
-[ext_resource type="Script" path="res://TowerScene/Entities/health.gd" id="2_voaf2"]
-[ext_resource type="Texture2D" uid="uid://cui2ehkly2nsi" path="res://Assets/Placeholders/Kenney/Farm/Preview.png" id="3_tw6h1"]
-[ext_resource type="SpriteFrames" uid="uid://cucs3j4e3gunc" path="res://Assets/Enemies/Enemy1/enemy1-spritesheet.tres" id="4_ybr1x"]
+[ext_resource type="Script" path="res://TowerScene/Entities/enemy.gd" id="1_ns6ih"]
+[ext_resource type="Script" path="res://TowerScene/Entities/health.gd" id="2_ifxu1"]
+[ext_resource type="Texture2D" uid="uid://cui2ehkly2nsi" path="res://Assets/Placeholders/Kenney/Farm/Preview.png" id="3_hnghs"]
+[ext_resource type="SpriteFrames" uid="uid://c1y5rjitardu5" path="res://Assets/Enemies/Ghostowl/ghostowl-spritesheet.tres" id="4_l0j2d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xydy7"]
 radius = 22.0
@@ -23,24 +23,25 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 bg_color = Color(0, 1, 0, 1)
 
 [node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("health", "path_follow", "sprite", "health_bar") groups=["Enemies"]]
-script = ExtResource("1_3ijvh")
+script = ExtResource("1_ns6ih")
 health = NodePath("Health")
 path_follow = NodePath("Path2D/PathFollow2D")
 sprite = NodePath("Sprite2D")
 health_bar = NodePath("ProgressBar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
 scale = Vector2(0.735981, 0.735981)
 shape = SubResource("CircleShape2D_xydy7")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Health" type="Node" parent="."]
-script = ExtResource("2_voaf2")
+script = ExtResource("2_ifxu1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2(0.0985172, 0.166978)
-texture = ExtResource("3_tw6h1")
+texture = ExtResource("3_hnghs")
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_c3lhe")
@@ -63,7 +64,8 @@ show_percentage = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -21)
-sprite_frames = ExtResource("4_ybr1x")
+sprite_frames = ExtResource("4_l0j2d")
 animation = &"bite"
+speed_scale = 2.0
 
 [node name="AttackTimer" type="Timer" parent="."]
