@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://qfygb7po01f4"]
 
-[ext_resource type="Script" path="res://Scenes/JamVersions/FarmScene/Food/food_item.gd" id="1_og02d"]
-[ext_resource type="Texture2D" uid="uid://c6dycaikxxxai" path="res://Scenes/JamVersions/FarmScene/Food/FoodSprites/apple_sprite.tres" id="2_e8dap"]
-[ext_resource type="Script" path="res://Scripts/Input/FollowMouse.gd" id="3_363r1"]
+[ext_resource type="Script" path="res://Scenes/JamVersions/FarmScene/Food/food_item.gd" id="1_3lk44"]
+[ext_resource type="Texture2D" uid="uid://c6dycaikxxxai" path="res://Scenes/JamVersions/FarmScene/Food/FoodSprites/apple_sprite.tres" id="2_0pdyg"]
+[ext_resource type="Script" path="res://Scripts/Input/FollowMouse.gd" id="3_rpb3y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rmn4v"]
 radius = 8.06226
@@ -58,11 +58,11 @@ _data = {
 }
 
 [node name="FoodItem" type="Node2D"]
-script = ExtResource("1_og02d")
+script = ExtResource("1_3lk44")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -2)
-texture = ExtResource("2_e8dap")
+texture = ExtResource("2_0pdyg")
 
 [node name="CollisionArea" type="Area2D" parent="."]
 
@@ -71,7 +71,7 @@ position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_rmn4v")
 
 [node name="FollowMouse" type="Node" parent="."]
-script = ExtResource("3_363r1")
+script = ExtResource("3_rpb3y")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

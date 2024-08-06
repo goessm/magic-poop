@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://m5d6owjwm0er"]
 
-[ext_resource type="PackedScene" uid="uid://b6l4yjnk56tif" path="res://Scenes/Inventory/ItemDisplay/poop_item_display.tscn" id="1_dmxp6"]
+[ext_resource type="PackedScene" uid="uid://b6l4yjnk56tif" path="res://Scenes/JamVersions/Inventory/ItemDisplay/poop_item_display.tscn" id="1_dmxp6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdp8h"]
 bg_color = Color(0.341176, 0.490196, 0.254902, 1)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bw3o54y7c8sa6"]
 
-[ext_resource type="Script" path="res://Scenes/Menu/MainMenu.gd" id="1_5rrp0"]
+[ext_resource type="Script" path="res://Scenes/JamVersions/Menu/MainMenu.gd" id="1_5rrp0"]
 [ext_resource type="Texture2D" uid="uid://7jo1hev11hlu" path="res://Assets/UI/titlescreen.png" id="2_1gj7j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohbic"]

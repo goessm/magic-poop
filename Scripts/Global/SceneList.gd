@@ -7,11 +7,11 @@ const sheep_poop = preload("res://Scenes/JamVersions/FarmScene/Poop/Poops/sheep_
 const dino_poop = preload("res://Scenes/JamVersions/FarmScene/Poop/Poops/dino_poop.tscn")
 const turtle_poop = preload("res://Scenes/JamVersions/FarmScene/Poop/Poops/turtle_poop.tscn")
 
-const normal_poop_texture = preload("res://Scenes/Inventory/ItemDisplay/PoopSprites/poop_sprite_normal.tres")
-const sheep_poop_texture = preload("res://Scenes/Inventory/ItemDisplay/PoopSprites/poop_sprite_sheep.tres")
-const dino_poop_texture = preload("res://Scenes/Inventory/ItemDisplay/PoopSprites/poop_sprite_dino.tres")
-const turtle_poop_texture = preload("res://Scenes/Inventory/ItemDisplay/PoopSprites/poop_sprite_turtle.tres")
-const rainbow_poop_texture = preload("res://Scenes/Inventory/ItemDisplay/PoopSprites/poop_sprite_rainbow.tres")
+const normal_poop_texture = preload("res://Scenes/JamVersions/Inventory/ItemDisplay/PoopSprites/poop_sprite_normal.tres")
+const sheep_poop_texture = preload("res://Scenes/JamVersions/Inventory/ItemDisplay/PoopSprites/poop_sprite_sheep.tres")
+const dino_poop_texture = preload("res://Scenes/JamVersions/Inventory/ItemDisplay/PoopSprites/poop_sprite_dino.tres")
+const turtle_poop_texture = preload("res://Scenes/JamVersions/Inventory/ItemDisplay/PoopSprites/poop_sprite_turtle.tres")
+const rainbow_poop_texture = preload("res://Scenes/JamVersions/Inventory/ItemDisplay/PoopSprites/poop_sprite_rainbow.tres")
 
 const animal_poops = {
 	Animal.AnimalType.Sheep: sheep_poop,
