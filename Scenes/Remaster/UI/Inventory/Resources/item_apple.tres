@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://mnpdqyt6casy"]
-
-[ext_resource type="Script" path="res://Scenes/Remaster/UI/Inventory/Resources/inventory_item.gd" id="1_ctis0"]
-[ext_resource type="Texture2D" uid="uid://buarn4v24e0k4" path="res://Assets/Items/apple_sprite.tres" id="2_7t0wv"]
-
-[resource]
-script = ExtResource("1_ctis0")
-type = 2
-texture = ExtResource("2_7t0wv")

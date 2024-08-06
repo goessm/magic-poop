@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dws2njw1jwqbi"]
+[gd_scene load_steps=5 format=3 uid="uid://dws2njw1jwqbi"]
 
 [ext_resource type="Script" path="res://Scenes/Remaster/UI/Inventory/ItemButton/ItemButton.gd" id="1_n7mxj"]
-[ext_resource type="Texture2D" uid="uid://bqloamvqwomli" path="res://Scenes/JamVersions/Inventory/ItemDisplay/PoopSprites/poop_sprite_normal.tres" id="2_jtw61"]
+[ext_resource type="Texture2D" uid="uid://dbnneugufbrfp" path="res://Assets/Items/poopfood.png" id="2_vqap7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5giie"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5fxq"]
+atlas = ExtResource("2_vqap7")
+region = Rect2(0, 8, 8, 8)
 
 [node name="ItemButton" type="Button" node_paths=PackedStringArray("image", "label")]
 custom_minimum_size = Vector2(100, 0)
@@ -41,7 +45,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
-texture = ExtResource("2_jtw61")
+texture = SubResource("AtlasTexture_n5fxq")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="HBoxContainer"]

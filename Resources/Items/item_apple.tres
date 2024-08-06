@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://mnpdqyt6casy"]
+
+[ext_resource type="Script" path="res://Resources/Items/inventory_item.gd" id="1_twm8t"]
+[ext_resource type="Texture2D" uid="uid://buarn4v24e0k4" path="res://Assets/Items/apple_sprite.tres" id="2_i5a3m"]
+
+[resource]
+script = ExtResource("1_twm8t")
+type = 2
+texture = ExtResource("2_i5a3m")

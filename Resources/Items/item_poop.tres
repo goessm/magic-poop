@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c0f0awh3x53r5"]
+
+[ext_resource type="Script" path="res://Resources/Items/inventory_item.gd" id="1_la144"]
+[ext_resource type="Texture2D" uid="uid://br6cxuubpmcvp" path="res://Assets/Items/poop_sprite_normal.tres" id="2_o2igb"]
+
+[resource]
+script = ExtResource("1_la144")
+type = 0
+texture = ExtResource("2_o2igb")

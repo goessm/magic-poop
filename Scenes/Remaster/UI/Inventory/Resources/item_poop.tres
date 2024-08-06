@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c0f0awh3x53r5"]
-
-[ext_resource type="Script" path="res://Scenes/Remaster/UI/Inventory/Resources/inventory_item.gd" id="1_o6i2b"]
-[ext_resource type="Texture2D" uid="uid://br6cxuubpmcvp" path="res://Assets/Items/poop_sprite_normal.tres" id="2_j217k"]
-
-[resource]
-script = ExtResource("1_o6i2b")
-type = 0
-texture = ExtResource("2_j217k")

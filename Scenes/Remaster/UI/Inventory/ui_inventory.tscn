@@ -1,6 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dj568suax2kap"]
+[gd_scene load_steps=7 format=3 uid="uid://dj568suax2kap"]
 
 [ext_resource type="PackedScene" uid="uid://dws2njw1jwqbi" path="res://Scenes/Remaster/UI/Inventory/ItemButton/item_button.tscn" id="1_skx4d"]
+[ext_resource type="Resource" uid="uid://c0f0awh3x53r5" path="res://Resources/Items/item_poop.tres" id="2_rhtdr"]
+[ext_resource type="Resource" uid="uid://c8oy0m5rm0jhu" path="res://Resources/Items/item_rainbowpoop.tres" id="3_6q3bi"]
+[ext_resource type="Resource" uid="uid://mnpdqyt6casy" path="res://Resources/Items/item_apple.tres" id="4_1qnec"]
+[ext_resource type="Resource" uid="uid://bxm6q3f6e1iwu" path="res://Resources/Items/item_banana.tres" id="5_tau6j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdp8h"]
 bg_color = Color(0.341176, 0.490196, 0.254902, 1)
@@ -29,23 +33,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ItemButton" parent="Panel/HBoxContainer" instance=ExtResource("1_skx4d")]
+[node name="ItemButtonPoop" parent="Panel/HBoxContainer" instance=ExtResource("1_skx4d")]
 layout_mode = 2
+item = ExtResource("2_rhtdr")
 
-[node name="ItemButton2" parent="Panel/HBoxContainer" node_paths=PackedStringArray("image", "label") instance=ExtResource("1_skx4d")]
+[node name="ItemButtonRainbow" parent="Panel/HBoxContainer" instance=ExtResource("1_skx4d")]
 layout_mode = 2
-item_type = 1
-image = NodePath("../ItemButton/HBoxContainer/IconSpace/Icon")
-label = NodePath("../ItemButton/HBoxContainer/Label")
+item = ExtResource("3_6q3bi")
 
-[node name="ItemButton3" parent="Panel/HBoxContainer" node_paths=PackedStringArray("image", "label") instance=ExtResource("1_skx4d")]
+[node name="ItemButtonApple" parent="Panel/HBoxContainer" instance=ExtResource("1_skx4d")]
 layout_mode = 2
-item_type = 2
-image = NodePath("../ItemButton/HBoxContainer/IconSpace/Icon")
-label = NodePath("../ItemButton/HBoxContainer/Label")
+item = ExtResource("4_1qnec")
 
-[node name="ItemButton4" parent="Panel/HBoxContainer" node_paths=PackedStringArray("image", "label") instance=ExtResource("1_skx4d")]
+[node name="ItemButtonBanana" parent="Panel/HBoxContainer" instance=ExtResource("1_skx4d")]
 layout_mode = 2
-item_type = 3
-image = NodePath("../ItemButton/HBoxContainer/IconSpace/Icon")
-label = NodePath("../ItemButton/HBoxContainer/Label")
+item = ExtResource("5_tau6j")
