@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/JamVersions/FarmScene/Food/food_item.gd" id="1_3lk44"]
 [ext_resource type="Texture2D" uid="uid://c6dycaikxxxai" path="res://Scenes/JamVersions/FarmScene/Food/FoodSprites/apple_sprite.tres" id="2_0pdyg"]
-[ext_resource type="Script" path="res://Scripts/Input/FollowMouse.gd" id="3_rpb3y"]
+[ext_resource type="Script" path="res://Scenes/JamVersions/Scripts/Input/FollowMouse.gd" id="3_jkku5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rmn4v"]
 radius = 8.06226
@@ -71,7 +71,7 @@ position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_rmn4v")
 
 [node name="FollowMouse" type="Node" parent="."]
-script = ExtResource("3_rpb3y")
+script = ExtResource("3_jkku5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

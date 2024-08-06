@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=3 uid="uid://ea7vkvuklrwm"]
+
+[ext_resource type="Script" path="res://Scenes/Remaster/MainMenu/main_menu.gd" id="1_3suus"]
+[ext_resource type="PackedScene" uid="uid://dvy2s780t3p08" path="res://Scenes/Remaster/GameScene/game_scene.tscn" id="2_df67m"]
+[ext_resource type="Texture2D" uid="uid://yeta18dakcxo" path="res://Assets/UI/titlescreen_new.png" id="2_dyabj"]
+[ext_resource type="PackedScene" uid="uid://d2lwdlovqpyli" path="res://Scenes/JamVersions/FarmScene/farm_scene.tscn" id="2_ou8l5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohbic"]
+bg_color = Color(0.298039, 0.517647, 0.294118, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3suus")
+game_scene = ExtResource("2_df67m")
+jam_game_scene = ExtResource("2_ou8l5")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ohbic")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_dyabj")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="StartGameButton" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 0
+offset_left = 271.0
+offset_top = 108.0
+offset_right = 371.0
+offset_bottom = 158.0
+
+[node name="Label" type="Label" parent="StartGameButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartJamButton" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0.713726)
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 0
+offset_left = 283.0
+offset_top = 163.0
+offset_right = 443.0
+offset_bottom = 192.0
+scale = Vector2(0.5, 0.5)
+
+[node name="Label" type="Label" parent="StartJamButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 19
+text = "Try jam version"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="StartGameButton" to="." method="_on_startgame_button_pressed"]
+[connection signal="pressed" from="StartJamButton" to="." method="_on_startjam_button_pressed"]

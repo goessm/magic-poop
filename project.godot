@@ -11,16 +11,16 @@ config_version=5
 [application]
 
 config/name="Magic-poop"
-run/main_scene="res://Scenes/JamVersions/Menu/main_menu.tscn"
+run/main_scene="res://Scenes/Remaster/MainMenu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Groups="*res://Scripts/Global/Groups.gd"
+Groups="*res://Scenes/JamVersions/Scripts/Global/Groups.gd"
 Inventory="*res://Scenes/JamVersions/Inventory/inventory.gd"
-SceneList="*res://Scripts/Global/SceneList.gd"
-GameState="*res://Scripts/Global/GameState.gd"
+SceneList="*res://Scenes/JamVersions/Scripts/Global/SceneList.gd"
+GameState="*res://Scenes/JamVersions/Scripts/Global/GameState.gd"
 SoundEffects="*res://Scenes/JamVersions/Sound/sound_effects.tscn"
 Music="*res://Scenes/JamVersions/Sound/music.tscn"
 
