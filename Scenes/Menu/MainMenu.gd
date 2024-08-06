@@ -1,4 +1,4 @@
 extends Control
 
 func _on_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/FarmScene/farm_scene.tscn")
+	get_tree().change_scene_to_file("res://Scenes/JamVersions/FarmScene/farm_scene.tscn")

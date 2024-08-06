@@ -2,10 +2,10 @@ extends Node
 
 # poops
 
-const normal_poop = preload("res://Scenes/FarmScene/Poop/Poop.tscn")
-const sheep_poop = preload("res://Scenes/FarmScene/Poop/Poops/sheep_poop.tscn")
-const dino_poop = preload("res://Scenes/FarmScene/Poop/Poops/dino_poop.tscn")
-const turtle_poop = preload("res://Scenes/FarmScene/Poop/Poops/turtle_poop.tscn")
+const normal_poop = preload("res://Scenes/JamVersions/FarmScene/Poop/Poop.tscn")
+const sheep_poop = preload("res://Scenes/JamVersions/FarmScene/Poop/Poops/sheep_poop.tscn")
+const dino_poop = preload("res://Scenes/JamVersions/FarmScene/Poop/Poops/dino_poop.tscn")
+const turtle_poop = preload("res://Scenes/JamVersions/FarmScene/Poop/Poops/turtle_poop.tscn")
 
 const normal_poop_texture = preload("res://Scenes/Inventory/ItemDisplay/PoopSprites/poop_sprite_normal.tres")
 const sheep_poop_texture = preload("res://Scenes/Inventory/ItemDisplay/PoopSprites/poop_sprite_sheep.tres")
@@ -30,13 +30,13 @@ const poop_sprites = {
 # food
 
 const food_sprites = {
-	FoodItem.FoodType.Apple: preload("res://Scenes/FarmScene/Food/FoodSprites/apple_sprite.tres"),
-	FoodItem.FoodType.Cherry: preload("res://Scenes/FarmScene/Food/FoodSprites/cherry_sprite.tres"),
-	FoodItem.FoodType.Banana: preload("res://Scenes/FarmScene/Food/FoodSprites/banana_sprite.tres"),
-	FoodItem.FoodType.Watermelon: preload("res://Scenes/FarmScene/Food/FoodSprites/watermelon_sprite.tres")
+	FoodItem.FoodType.Apple: preload("res://Scenes/JamVersions/FarmScene/Food/FoodSprites/apple_sprite.tres"),
+	FoodItem.FoodType.Cherry: preload("res://Scenes/JamVersions/FarmScene/Food/FoodSprites/cherry_sprite.tres"),
+	FoodItem.FoodType.Banana: preload("res://Scenes/JamVersions/FarmScene/Food/FoodSprites/banana_sprite.tres"),
+	FoodItem.FoodType.Watermelon: preload("res://Scenes/JamVersions/FarmScene/Food/FoodSprites/watermelon_sprite.tres")
 }
 
-const food_item_scene = preload("res://Scenes/FarmScene/Food/FoodItem.tscn")
+const food_item_scene = preload("res://Scenes/JamVersions/FarmScene/Food/FoodItem.tscn")
 
 # animals
 
@@ -48,7 +48,7 @@ const animal_sprites = {
 
 # trees
 
-const tree_scene = preload("res://Scenes/FarmScene/FruitTrees/tree.tscn")
+const tree_scene = preload("res://Scenes/JamVersions/FarmScene/FruitTrees/tree.tscn")
 
 # sounds
 
@@ -57,4 +57,4 @@ const eat_sound = preload("res://Assets/Sound/DinosAndPoop/SFX_Eat_Crunch.wav")
 
 #tower
 
-const tower_scene = preload("res://Scenes/TowerScene/tower.tscn")
+const tower_scene = preload("res://Scenes/JamVersions/TowerScene/tower.tscn")
