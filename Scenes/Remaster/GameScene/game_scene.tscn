@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://dvy2s780t3p08"]
 
-[ext_resource type="Script" path="res://Scenes/JamVersions/FarmScene/farm_scene.gd" id="1_wkf6g"]
+[ext_resource type="Script" path="res://Scenes/Remaster/GameScene/game_scene.gd" id="1_mvp7w"]
 [ext_resource type="PackedScene" uid="uid://m5d6owjwm0er" path="res://Scenes/JamVersions/Inventory/inventory_ui.tscn" id="2_r02vx"]
 [ext_resource type="Texture2D" uid="uid://ch2l3fgyg1idx" path="res://Assets/Terrain/grid-terrain.png" id="3_6qx1l"]
 [ext_resource type="Script" path="res://Scenes/JamVersions/FarmScene/Tilemaps/FarmBgTileMap.gd" id="4_6o0v8"]
@@ -82,8 +82,8 @@ texture = ExtResource("3_6qx1l")
 [sub_resource type="TileSet" id="TileSet_l0gge"]
 sources/0 = SubResource("TileSetAtlasSource_xwyy5")
 
-[node name="FarmScene" type="Node"]
-script = ExtResource("1_wkf6g")
+[node name="GameScene" type="Node"]
+script = ExtResource("1_mvp7w")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0

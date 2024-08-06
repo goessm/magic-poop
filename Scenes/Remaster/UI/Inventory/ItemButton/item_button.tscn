@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://dws2njw1jwqbi"]
+
+[ext_resource type="Script" path="res://Scenes/Remaster/UI/Inventory/ItemButton/ItemButton.gd" id="1_n7mxj"]
+[ext_resource type="Texture2D" uid="uid://bqloamvqwomli" path="res://Scenes/JamVersions/Inventory/ItemDisplay/PoopSprites/poop_sprite_normal.tres" id="2_jtw61"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5giie"]
+
+[node name="ItemButton" type="Button" node_paths=PackedStringArray("image", "label")]
+custom_minimum_size = Vector2(100, 0)
+offset_right = 112.0
+offset_bottom = 73.0
+focus_mode = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5giie")
+script = ExtResource("1_n7mxj")
+image = NodePath("HBoxContainer/IconSpace/Icon")
+label = NodePath("HBoxContainer/Label")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IconSpace" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/IconSpace"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 6.0
+offset_right = -5.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+texture = ExtResource("2_jtw61")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 60
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

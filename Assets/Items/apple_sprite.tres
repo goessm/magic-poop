@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://buarn4v24e0k4"]
+
+[ext_resource type="Texture2D" uid="uid://dbnneugufbrfp" path="res://Assets/Items/poopfood.png" id="1_hi4xb"]
+
+[resource]
+atlas = ExtResource("1_hi4xb")
+region = Rect2(0, 0, 8, 8)
