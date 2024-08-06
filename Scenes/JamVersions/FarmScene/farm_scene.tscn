@@ -22,6 +22,8 @@ layer = 0
 
 [node name="FarmBgTileMap" parent="Farm" instance=ExtResource("1_asobj")]
 z_index = -100
+layer_1/name = "Layer1"
+layer_2/name = "Layer2"
 
 [node name="FoodItem" parent="Farm" instance=ExtResource("3_rqvr6")]
 position = Vector2(35, 157)
