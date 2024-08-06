@@ -11,20 +11,18 @@ config_version=5
 [application]
 
 config/name="Magic-poop"
-run/main_scene="res://Menu/main_menu.tscn"
-config/features=PackedStringArray("4.1", "GL Compatibility")
+run/main_scene="res://Scenes/Menu/main_menu.tscn"
+config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-EventBus="*res://Global/EventBus.gd"
-Groups="*res://Global/Groups.gd"
-Inventory="*res://Inventory/inventory.gd"
-Enums="*res://Global/Enums.gd"
-SceneList="*res://Global/SceneList.gd"
-GameState="*res://Global/GameState.gd"
-SoundEffects="*res://sound/sound_effects.tscn"
-Music="*res://sound/music.tscn"
+Groups="*res://Scripts/Global/Groups.gd"
+Inventory="*res://Scenes/Inventory/inventory.gd"
+SceneList="*res://Scripts/Global/SceneList.gd"
+GameState="*res://Scripts/Global/GameState.gd"
+SoundEffects="*res://Scenes/Sound/sound_effects.tscn"
+Music="*res://Scenes/Sound/music.tscn"
 
 [display]
 
