@@ -1,0 +1,73 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://rl2ffuv65mg3"]
+
+[ext_resource type="Texture2D" uid="uid://b2yxujldoio2c" path="res://Assets/Trees/apple-shoot.png" id="1_dk6kd"]
+[ext_resource type="Texture2D" uid="uid://bexctb5hv7tl2" path="res://Assets/Trees/apple-tree.png" id="1_qp4yl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5bg7"]
+atlas = ExtResource("1_dk6kd")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05sax"]
+atlas = ExtResource("1_dk6kd")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7jvo"]
+atlas = ExtResource("1_dk6kd")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_le13g"]
+atlas = ExtResource("1_dk6kd")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlrjl"]
+atlas = ExtResource("1_dk6kd")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpiy4"]
+atlas = ExtResource("1_qp4yl")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3oto"]
+atlas = ExtResource("1_qp4yl")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u18if"]
+atlas = ExtResource("1_qp4yl")
+region = Rect2(96, 0, 48, 48)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5bg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05sax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7jvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_le13g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlrjl")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpiy4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3oto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u18if")
+}],
+"loop": true,
+"name": &"grow",
+"speed": 0.0
+}]

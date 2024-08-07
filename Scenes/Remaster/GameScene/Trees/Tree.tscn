@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://djwy8ygjjpte8"]
+
+[ext_resource type="SpriteFrames" uid="uid://rl2ffuv65mg3" path="res://Scenes/Remaster/GameScene/Trees/frames_apple_tree.tres" id="1_dpt03"]
+[ext_resource type="Script" path="res://Scenes/Remaster/GameScene/Trees/Tree.gd" id="1_nrunb"]
+[ext_resource type="PackedScene" uid="uid://bxc31j4q5j6g5" path="res://Scenes/Remaster/GameScene/Trees/Components/growth_stages.tscn" id="3_6npfr"]
+[ext_resource type="Script" path="res://Scenes/Remaster/GameScene/Trees/ClickInteractable.gd" id="4_67c0t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xykpk"]
+size = Vector2(50, 50)
+
+[node name="Tree" type="Node2D" node_paths=PackedStringArray("growth")]
+script = ExtResource("1_nrunb")
+growth = NodePath("GrowthStages")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_dpt03")
+animation = &"grow"
+autoplay = "grow"
+
+[node name="GrowthStages" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("3_6npfr")]
+sprite = NodePath("../AnimatedSprite2D")
+
+[node name="ClickInteractable" type="Area2D" parent="."]
+script = ExtResource("4_67c0t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickInteractable"]
+shape = SubResource("RectangleShape2D_xykpk")
+
+[connection signal="clicked" from="ClickInteractable" to="." method="_on_click_interactable_clicked"]

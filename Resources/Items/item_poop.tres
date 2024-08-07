@@ -7,3 +7,4 @@
 script = ExtResource("1_la144")
 type = 0
 texture = ExtResource("2_o2igb")
+fertilize_power = 1

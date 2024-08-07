@@ -7,3 +7,4 @@
 script = ExtResource("1_ylnsi")
 type = 1
 texture = ExtResource("2_krptt")
+fertilize_power = 10
