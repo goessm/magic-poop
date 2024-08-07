@@ -2,6 +2,7 @@ extends Node2D
 
 @export_group("Children")
 @export var growth: GrowthStages
+@export var sprite: AnimatedSprite2D
 
 func _ready() -> void:
 	growth.growth_stage = 0
@@ -24,4 +25,7 @@ func _on_fertilize(fertilize_power: int):
 
 
 func _turn_into_turret():
+	const attack_name = "attack"
+	sprite.play(attack_name)
+	sprite.pause()
 	pass

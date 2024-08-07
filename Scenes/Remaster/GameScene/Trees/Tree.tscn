@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://djwy8ygjjpte8"]
+[gd_scene load_steps=13 format=3 uid="uid://djwy8ygjjpte8"]
 
-[ext_resource type="SpriteFrames" uid="uid://rl2ffuv65mg3" path="res://Scenes/Remaster/GameScene/Trees/frames_apple_tree.tres" id="1_dpt03"]
+[ext_resource type="SpriteFrames" uid="uid://rl2ffuv65mg3" path="res://Scenes/Remaster/GameScene/Trees/Sprites/frames_apple_tree.tres" id="1_dpt03"]
 [ext_resource type="Script" path="res://Scenes/Remaster/GameScene/Trees/Tree.gd" id="1_nrunb"]
 [ext_resource type="PackedScene" uid="uid://bxc31j4q5j6g5" path="res://Scenes/Remaster/GameScene/Trees/Components/growth_stages.tscn" id="3_6npfr"]
-[ext_resource type="Script" path="res://Scenes/Remaster/GameScene/Trees/ClickInteractable.gd" id="4_67c0t"]
+[ext_resource type="Script" path="res://Scenes/Remaster/GameScene/Trees/Components/ClickInteractable.gd" id="4_67c0t"]
+[ext_resource type="Script" path="res://Scenes/Remaster/GameScene/Trees/Components/AppleAttack.gd" id="5_iqcvk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xykpk"]
 size = Vector2(50, 50)
@@ -40,13 +41,14 @@ color_ramp = SubResource("GradientTexture1D_3ub0i")
 hue_variation_min = -0.1
 hue_variation_max = 0.00999998
 
-[node name="Tree" type="Node2D" node_paths=PackedStringArray("growth")]
+[node name="Tree" type="Node2D" node_paths=PackedStringArray("growth", "sprite")]
 script = ExtResource("1_nrunb")
 growth = NodePath("GrowthStages")
+sprite = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_dpt03")
-animation = &"grow"
+animation = &"attack"
 autoplay = "grow"
 
 [node name="GrowthStages" parent="." node_paths=PackedStringArray("sprite", "grow_fx") instance=ExtResource("3_6npfr")]
@@ -73,4 +75,18 @@ lifetime = 0.75
 one_shot = true
 explosiveness = 0.6
 
+[node name="AppleAttack" type="Node2D" parent="." node_paths=PackedStringArray("sightline", "attack_timer")]
+script = ExtResource("5_iqcvk")
+sightline = NodePath("Sightline")
+attack_timer = NodePath("AttackTimer")
+
+[node name="Sightline" type="Area2D" parent="AppleAttack"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AppleAttack/Sightline"]
+polygon = PackedVector2Array(-2, -37, -2, 52, 389, 121, 387, -127)
+
+[node name="AttackTimer" type="Timer" parent="AppleAttack"]
+autostart = true
+
 [connection signal="clicked" from="ClickInteractable" to="." method="_on_click_interactable_clicked"]
+[connection signal="timeout" from="AppleAttack/AttackTimer" to="AppleAttack" method="_on_attack_timer_timeout"]
