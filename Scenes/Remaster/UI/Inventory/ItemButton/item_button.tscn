@@ -11,8 +11,8 @@ region = Rect2(0, 8, 8, 8)
 
 [node name="ItemButton" type="Button" node_paths=PackedStringArray("image", "label")]
 custom_minimum_size = Vector2(100, 0)
-offset_right = 112.0
-offset_bottom = 73.0
+offset_right = 127.0
+offset_bottom = 88.0
 focus_mode = 1
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5giie")
 script = ExtResource("1_n7mxj")
@@ -31,6 +31,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
+mouse_filter = 1
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer/IconSpace"]
 layout_mode = 1
