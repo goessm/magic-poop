@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://djwy8ygjjpte8"]
+[gd_scene load_steps=12 format=3 uid="uid://djwy8ygjjpte8"]
 
 [ext_resource type="SpriteFrames" uid="uid://rl2ffuv65mg3" path="res://Scenes/Remaster/GameScene/Trees/frames_apple_tree.tres" id="1_dpt03"]
 [ext_resource type="Script" path="res://Scenes/Remaster/GameScene/Trees/Tree.gd" id="1_nrunb"]
@@ -7,6 +7,38 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xykpk"]
 size = Vector2(50, 50)
+
+[sub_resource type="Environment" id="Environment_bkpku"]
+background_mode = 3
+glow_enabled = true
+glow_hdr_threshold = 0.54
+
+[sub_resource type="Gradient" id="Gradient_3rkcx"]
+offsets = PackedFloat32Array(0, 0.513245, 1)
+colors = PackedColorArray(0.699613, 0.893742, 0.72307, 1, 0.305981, 0.642562, 0.228313, 1, 0.303466, 0.459514, 0.209253, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3ub0i"]
+gradient = SubResource("Gradient_3rkcx")
+
+[sub_resource type="Curve" id="Curve_l2oci"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.245455, 0.914474), 0.0, 0.0, 0, 0, Vector2(0.481818, 1), 0.0, 0.0, 0, 0, Vector2(0.733333, 0.906699), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_xioty"]
+curve = SubResource("Curve_l2oci")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ywcru"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 8.0
+orbit_velocity_min = -0.0199999
+orbit_velocity_max = 0.0200001
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_xioty")
+color_ramp = SubResource("GradientTexture1D_3ub0i")
+hue_variation_min = -0.1
+hue_variation_max = 0.00999998
 
 [node name="Tree" type="Node2D" node_paths=PackedStringArray("growth")]
 script = ExtResource("1_nrunb")
@@ -17,13 +49,28 @@ sprite_frames = ExtResource("1_dpt03")
 animation = &"grow"
 autoplay = "grow"
 
-[node name="GrowthStages" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("3_6npfr")]
+[node name="GrowthStages" parent="." node_paths=PackedStringArray("sprite", "grow_fx") instance=ExtResource("3_6npfr")]
 sprite = NodePath("../AnimatedSprite2D")
+grow_fx = NodePath("../Particles/GrowEffect")
 
 [node name="ClickInteractable" type="Area2D" parent="."]
 script = ExtResource("4_67c0t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickInteractable"]
 shape = SubResource("RectangleShape2D_xykpk")
+
+[node name="Particles" type="Node2D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Particles"]
+environment = SubResource("Environment_bkpku")
+
+[node name="GrowEffect" type="GPUParticles2D" parent="Particles"]
+position = Vector2(0, 9)
+emitting = false
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_ywcru")
+lifetime = 0.75
+one_shot = true
+explosiveness = 0.6
 
 [connection signal="clicked" from="ClickInteractable" to="." method="_on_click_interactable_clicked"]

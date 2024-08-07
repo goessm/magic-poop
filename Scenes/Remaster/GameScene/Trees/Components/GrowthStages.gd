@@ -8,6 +8,7 @@ extends Node
 
 @export_group("Dependencies")
 @export var sprite: AnimatedSprite2D
+@export var grow_fx: GPUParticles2D
 
 const growAnimationName := "grow"
 
@@ -23,6 +24,9 @@ func _set_growth_stage(stage: int):
 	sprite.play(growAnimationName)
 	sprite.pause()
 	sprite.frame = growth_stage
+	
+	if (grow_fx):
+		grow_fx.emitting = true
 
 func is_fully_grown() -> bool:
 	return growth_stage >= growth_stage_count - 1

@@ -88,6 +88,7 @@ script = ExtResource("1_mvp7w")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
+visible = false
 script = ExtResource("2_1ms2e")
 
 [node name="UIInventory" parent="CanvasLayer" instance=ExtResource("2_oi2na")]
