@@ -1,23 +1,52 @@
-[gd_scene load_steps=4 format=3 uid="uid://hl1rtpvgqbu3"]
+[gd_scene load_steps=7 format=3 uid="uid://hl1rtpvgqbu3"]
 
 [ext_resource type="Script" path="res://Scenes/Remaster/GameScene/Enemies/Enemy/enemy.gd" id="1_8h4re"]
 [ext_resource type="SpriteFrames" uid="uid://c760wror4weui" path="res://Scenes/Remaster/GameScene/Enemies/Enemy/Sprites/frames_enemy_dog.tres" id="2_2ciul"]
+[ext_resource type="Script" path="res://Scenes/Remaster/GameScene/Enemies/Enemy/Components/AttackArea.gd" id="3_kwknf"]
+[ext_resource type="Script" path="res://Scenes/Remaster/GameScene/Enemies/Enemy/Components/SpeedSensor.gd" id="4_kw606"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vxmpb"]
+radius = 31.0
+height = 66.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x7u21"]
 radius = 12.0
 height = 34.0
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "collision_shape", "navigation_agent")]
-collision_layer = 512
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("flip_on_turn", "sprite", "collision_shape", "navigation_agent")]
+collision_layer = 513
+motion_mode = 1
 script = ExtResource("1_8h4re")
-sprite = NodePath("AnimatedSprite2D")
+flip_on_turn = NodePath("FlipOnTurn")
+sprite = NodePath("FlipOnTurn/AnimatedSprite2D")
 collision_shape = NodePath("CollisionShape2D")
 navigation_agent = NodePath("NavigationAgent2D")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="FlipOnTurn" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FlipOnTurn"]
 position = Vector2(-1, -20)
 sprite_frames = ExtResource("2_2ciul")
 animation = &"attack"
+autoplay = "run"
+
+[node name="AttackArea" type="Area2D" parent="FlipOnTurn" node_paths=PackedStringArray("sprite", "speed_sensor", "collision_shape", "attack_timer", "standstill_timer")]
+script = ExtResource("3_kwknf")
+sprite = NodePath("../AnimatedSprite2D")
+speed_sensor = NodePath("../../SpeedSensor")
+collision_shape = NodePath("CollisionShape2D")
+attack_timer = NodePath("AttackTimer")
+standstill_timer = NodePath("StandstillTimer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipOnTurn/AttackArea"]
+position = Vector2(2, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_vxmpb")
+
+[node name="AttackTimer" type="Timer" parent="FlipOnTurn/AttackArea"]
+wait_time = 2.0
+
+[node name="StandstillTimer" type="Timer" parent="FlipOnTurn/AttackArea"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -25,3 +54,11 @@ shape = SubResource("CapsuleShape2D_x7u21")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_postprocessing = 1
+simplify_path = true
+debug_enabled = true
+
+[node name="SpeedSensor" type="Node2D" parent="."]
+script = ExtResource("4_kw606")
+
+[connection signal="timeout" from="FlipOnTurn/AttackArea/AttackTimer" to="FlipOnTurn/AttackArea" method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="FlipOnTurn/AttackArea/StandstillTimer" to="FlipOnTurn/AttackArea" method="_on_standstill_timer_timeout"]

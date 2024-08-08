@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://djwy8ygjjpte8"]
+[gd_scene load_steps=14 format=3 uid="uid://djwy8ygjjpte8"]
 
 [ext_resource type="SpriteFrames" uid="uid://rl2ffuv65mg3" path="res://Scenes/Remaster/GameScene/Trees/Sprites/frames_apple_tree.tres" id="1_dpt03"]
 [ext_resource type="Script" path="res://Scenes/Remaster/GameScene/Trees/Tree.gd" id="1_nrunb"]
@@ -41,7 +41,9 @@ color_ramp = SubResource("GradientTexture1D_3ub0i")
 hue_variation_min = -0.1
 hue_variation_max = 0.00999998
 
-[node name="Tree" type="Node2D" node_paths=PackedStringArray("growth", "sprite")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ncess"]
+
+[node name="Tree" type="StaticBody2D" node_paths=PackedStringArray("growth", "sprite")]
 script = ExtResource("1_nrunb")
 growth = NodePath("GrowthStages")
 sprite = NodePath("AnimatedSprite2D")
@@ -87,6 +89,10 @@ polygon = PackedVector2Array(-2, -37, -2, 52, 389, 121, 387, -127)
 
 [node name="AttackTimer" type="Timer" parent="AppleAttack"]
 autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 14)
+shape = SubResource("RectangleShape2D_ncess")
 
 [connection signal="clicked" from="ClickInteractable" to="." method="_on_click_interactable_clicked"]
 [connection signal="timeout" from="AppleAttack/AttackTimer" to="AppleAttack" method="_on_attack_timer_timeout"]

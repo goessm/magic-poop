@@ -29,3 +29,7 @@ func _turn_into_turret():
 	sprite.play(attack_name)
 	sprite.pause()
 	pass
+
+func take_damage_from_enemy(amount):
+	print("DMG")
+	pass
